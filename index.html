@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Gadies | Official Fans Portal & Cinematic Cover</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        body {
+            background-color: #050811;
+            background-image: linear-gradient(to bottom, rgba(5, 8, 17, 0.45), rgba(5, 8, 17, 0.75)), url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -20%; left: -20%;
+            width: 70vw; height: 70vh;
+            background: radial-gradient(circle, rgba(37, 51, 66, 0.3) 0%, rgba(5, 8, 17, 0) 70%);
+            z-index: -2;
+            animation: floatOrb 10s ease-in-out infinite alternate;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -20%; right: -20%;
+            width: 70vw; height: 70vh;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, rgba(5, 8, 17, 0) 70%);
+            z-index: -2;
+            animation: floatOrb2 12s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 50px) scale(1.1); }
+        }
+        @keyframes floatOrb2 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-50px, -50px) scale(1.15); }
+        }
+
+        #intro-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #050811;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            z-index: 9999;
+            animation: hideOverlay 0.8s ease 3s forwards;
+        }
+
+        .anim-logo-wrap {
+            width: 250px; height: 250px;
+            display: flex; justify-content: center; align-items: center;
+            background: transparent;
+            animation: teslaReveal 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transform-style: preserve-3d;
+            overflow: visible;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+
+        .anim-logo-wrap img {
+            width: 100%; height: 100%; object-fit: contain;
+            filter: drop-shadow(0 0 45px rgba(249, 115, 22, 0.9)) drop-shadow(0 0 25px rgba(56, 189, 248, 0.9));
+        }
+
+        .anim-title {
+            font-size: 28px; font-weight: 800; letter-spacing: 5px;
+            background: linear-gradient(135deg, #38bdf8, #f97316);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            opacity: 0;
+            animation: textReveal 1.2s ease 1s forwards;
+            text-shadow: 0 0 25px rgba(56,189,248,0.5);
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        @keyframes teslaReveal {
+            0% { transform: scale(0.2) rotateX(70deg); opacity: 0; filter: blur(10px); }
+            60% { transform: scale(1.05) rotateX(0deg); opacity: 1; filter: blur(0); }
+            100% { transform: scale(1) rotateX(0deg); opacity: 1; }
+        }
+
+        @keyframes textReveal {
+            from { opacity: 0; transform: translateY(20px); letter-spacing: 10px; }
+            to { opacity: 1; transform: translateY(0); letter-spacing: 5px; }
+        }
+
+        @keyframes hideOverlay {
+            to { opacity: 0; visibility: hidden; pointer-events: none; }
+        }
+
+        .container {
+            max-width: 850px; margin: 0 auto; padding: 40px 15px;
+            animation: pageFadeIn 1s ease;
+        }
+        @keyframes pageFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(249, 115, 22, 0.5);
+            border-radius: 24px; padding: 40px 20px; text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.7), inset 0 0 25px rgba(249, 115, 22, 0.15);
+            margin-bottom: 25px; position: relative; overflow: hidden;
+        }
+        .header-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, #38bdf8, #f97316);
+            box-shadow: 0 0 15px #f97316;
+        }
+        
+        .header-logo-badge {
+            width: 120px; height: 120px;
+            margin: 0 auto 15px auto; display: flex; justify-content: center; align-items: center;
+            background: transparent; overflow: visible; padding: 0;
+            transition: 0.5s; animation: pulse3D 4s ease-in-out infinite;
+        }
+        .header-logo-badge img {
+            width: 100%; height: 100%; object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(249, 115, 22, 0.8));
+        }
+
+        .club-tag {
+            color: #38bdf8; font-size: 12px; font-weight: 800; letter-spacing: 2px;
+            text-transform: uppercase; margin-bottom: 8px;
+            text-shadow: 0 0 10px rgba(56,189,248,0.5);
+        }
+        h1 { font-size: 24px; font-weight: 800; color: #ffffff; margin-bottom: 10px; }
+        h1 span { color: #f97316; text-shadow: 0 0 15px rgba(249,115,22,0.6); }
+        .subtitle { color: #94a3b8; font-size: 13px; max-width: 600px; margin: 0 auto; }
+
+        .cover-showcase-wrapper {
+            margin-bottom: 25px;
+            perspective: 1000px;
+        }
+        .cover-card-3d {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(249, 115, 22, 0.2);
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+            border: 1px solid rgba(249, 115, 22, 0.4);
+            background: #253342;
+        }
+        .cover-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+
+        .light-ray {
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0) 100%);
+            transform: rotate(30deg);
+            pointer-events: none;
+            animation: sweepLight 6s infinite linear;
+        }
+
+        @keyframes sweepLight {
+            0% { transform: translateY(-100%) rotate(30deg); }
+            100% { transform: translateY(100%) rotate(30deg); }
+        }
+
+        .glint-effect {
+            position: absolute;
+            top: 0; left: -150%;
+            width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.25), transparent);
+            transform: skewX(-20deg);
+            pointer-events: none;
+            animation: glintMove 4s infinite ease-in-out;
+        }
+
+        @keyframes glintMove {
+            0% { left: -150%; }
+            20% { left: 150%; }
+            100% { left: 150%; }
+        }
+
+        #dustCanvas {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;
+        }
+
+        .vignette {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.7);
+            pointer-events: none;
+        }
+
+        .card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(59, 77, 97, 0.6); border-radius: 20px;
+            padding: 25px 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 0 15px rgba(56, 189, 248, 0.08);
+            margin-bottom: 25px; transition: 0.3s;
+        }
+        @media(min-width: 768px) {
+            .card { padding: 35px; }
+            h1 { font-size: 28px; }
+            .club-tag { font-size: 13px; }
+        }
+
+        .section-title {
+            color: #f97316; font-size: 17px; font-weight: 800; margin-bottom: 15px;
+            display: flex; align-items: center; gap: 10px;
+            text-shadow: 0 0 10px rgba(249,115,22,0.4);
+        }
+        .about-text { color: #cbd5e1; font-size: 14px; line-height: 1.7; }
+        @media(min-width: 768px) { .about-text { font-size: 15px; } }
+
+        .slk-live-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444;
+            color: #fca5a5; font-size: 11px; font-weight: 800; padding: 4px 10px;
+            border-radius: 20px; text-transform: uppercase; margin-bottom: 15px;
+            animation: livePulse 2s infinite;
+        }
+        @keyframes livePulse {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+            70% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+
+        .matches-grid {
+            display: grid; gap: 12px; margin-bottom: 15px;
+        }
+        .match-fixture-card {
+            background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 12px; padding: 15px; display: flex; justify-content: space-between;
+            align-items: center; transition: 0.3s;
+        }
+        .match-fixture-card:hover { border-color: #f97316; transform: translateY(-2px); }
+        .fixture-teams { font-weight: 700; font-size: 13px; color: #f8fafc; }
+        .fixture-meta { font-size: 11px; color: #94a3b8; margin-top: 4px; }
+        .fixture-status { font-weight: 800; font-size: 12px; color: #38bdf8; }
+
+        .table-wrapper { overflow-x: auto; }
+        .standings-table {
+            width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;
+        }
+        .standings-table th, .standings-table td {
+            padding: 10px 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .standings-table th { color: #38bdf8; font-weight: 800; font-size: 12px; }
+        .standings-table tr.highlight-team {
+            background: rgba(249, 115, 22, 0.18);
+            border-left: 3px solid #f97316;
+            font-weight: 700;
+        }
+
+        .roles {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px; margin: 20px 0;
+        }
+        .role-box {
+            background: rgba(15, 23, 42, 0.9); padding: 14px; border-radius: 12px;
+            border-left: 4px solid #f97316; font-weight: 600; color: #f8fafc;
+            text-align: center; font-size: 13px; box-shadow: inset 0 0 10px rgba(249,115,22,0.1);
+            transition: 0.3s;
+        }
+        .role-box:hover {
+            transform: translateY(-3px); background: rgba(37, 51, 66, 0.8);
+            box-shadow: 0 5px 15px rgba(249,115,22,0.3);
+        }
+
+        .form-group { margin-bottom: 18px; }
+        label { display: block; margin-bottom: 7px; font-weight: 600; color: #e2e8f0; font-size: 13px; }
+        @media(min-width: 768px) { label { font-size: 14px; } }
+
+        input, select, textarea {
+            width: 100%; padding: 12px 14px; background: rgba(15, 23, 42, 0.95);
+            border: 1px solid #475569; border-radius: 10px; color: #fff; font-size: 14px; transition: 0.3s;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none; border-color: #f97316; box-shadow: 0 0 15px rgba(249, 115, 22, 0.5), inset 0 0 5px rgba(249, 115, 22, 0.3);
+        }
+        .checkbox-label {
+            display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: #cbd5e1; cursor: pointer;
+        }
+        @media(min-width: 768px) { .checkbox-label { font-size: 13px; } }
+        .checkbox-label input { width: 18px; height: 18px; margin-top: 2px; accent-color: #f97316; flex-shrink: 0; }
+        
+        .btn {
+            display: block; width: 100%; padding: 15px;
+            background: linear-gradient(135deg, #f97316, #ea580c); color: white;
+            border: none; border-radius: 10px; font-size: 14px; font-weight: 800;
+            cursor: pointer; text-transform: uppercase; letter-spacing: 1.5px;
+            transition: 0.3s; text-align: center; box-shadow: 0 8px 25px rgba(249, 115, 22, 0.5);
+        }
+        @media(min-width: 768px) { .btn { font-size: 15px; padding: 16px; } }
+        .btn:hover { opacity: 0.95; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(249, 115, 22, 0.7); }
+        
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #1EBE5D);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+        .btn-whatsapp:hover { box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6); }
+
+        .contact-box { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px; }
+        .contact-item {
+            background: rgba(15, 23, 42, 0.85); border: 1px solid #334155;
+            padding: 12px 18px; border-radius: 10px; font-weight: 600; color: #38bdf8;
+            text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 13px; transition: 0.3s;
+            box-shadow: inset 0 0 10px rgba(56,189,248,0.1);
+        }
+        .contact-item:hover { border-color: #f97316; color: #f97316; transform: translateY(-3px); box-shadow: 0 5px 20px rgba(249,115,22,0.3); }
+        
+        .match-showcase {
+            background: rgba(26, 36, 51, 0.6);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 14px; padding: 25px 20px; text-align: center;
+            margin-bottom: 20px; position: relative; overflow: hidden;
+        }
+
+        .teams-container {
+            display: flex; align-items: center; justify-content: center;
+            gap: 25px; margin-bottom: 15px; perspective: 1000px;
+        }
+
+        .team-logo-box {
+            width: 85px; height: 85px; display: flex; align-items: center; justify-content: center;
+            transform-style: preserve-3d; animation: logo3Dfloat 4s ease-in-out infinite;
+        }
+        .team-logo-box:nth-child(2) { animation-delay: 2s; }
+        .team-logo-box img {
+            width: 100%; height: 100%; object-fit: contain;
+            filter: drop-shadow(0 10px 20px rgba(249, 115, 22, 0.5)); transition: 0.5s;
+        }
+        .team-logo-box img:hover {
+            transform: scale(1.15) rotateY(25deg);
+            filter: drop-shadow(0 15px 30px rgba(56, 189, 248, 0.8));
+        }
+
+        @keyframes logo3Dfloat {
+            0% { transform: translateY(0px) rotateY(0deg) scale(1); }
+            50% { transform: translateY(-8px) rotateY(15deg) scale(1.05); }
+            100% { transform: translateY(0px) rotateY(0deg) scale(1); }
+        }
+
+        @keyframes pulse3D {
+            0% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 15px rgba(249,115,22,0.6)); }
+            50% { transform: scale(1.06) rotate(3deg); filter: drop-shadow(0 0 25px rgba(56,189,248,0.8)); }
+            100% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 15px rgba(249,115,22,0.6)); }
+        }
+
+        .vs-text {
+            font-size: 20px; font-weight: 800;
+            background: linear-gradient(135deg, #38bdf8, #f97316);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: vsGlow 2s ease-in-out infinite alternate;
+        }
+        @keyframes vsGlow {
+            from { text-shadow: 0 0 5px rgba(56,189,248,0.5); }
+            to { text-shadow: 0 0 20px rgba(249, 115, 22, 0.9); }
+        }
+
+        .jersey-showcase-container {
+            width: 100%; max-width: 350px; margin: 0 auto 20px auto; perspective: 1000px;
+        }
+        .jersey-card-3d {
+            width: 100%; height: 320px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.2) 0%, rgba(15, 23, 42, 0.85) 80%);
+            border: 2px solid rgba(249, 115, 22, 0.6); border-radius: 20px;
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden; transform-style: preserve-3d;
+            animation: jerseyFloat 5s ease-in-out infinite;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.7), inset 0 0 25px rgba(249, 115, 22, 0.35);
+        }
+        .jersey-card-3d img {
+            width: 92%; height: 92%; object-fit: contain;
+            filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.9)); transition: transform 0.5s ease;
+        }
+        .jersey-card-3d:hover img { transform: scale(1.12) rotateZ(-3deg) rotateY(10deg); }
+        @keyframes jerseyFloat {
+            0% { transform: translateY(0px) rotateX(5deg) rotateY(-5deg); }
+            50% { transform: translateY(-12px) rotateX(-5deg) rotateY(5deg); }
+            100% { transform: translateY(0px) rotateX(5deg) rotateY(-5deg); }
+        }
+        
+        .ticket-showcase-container {
+            width: 100%; max-width: 340px; margin: 0 auto 20px auto; perspective: 1000px;
+        }
+        .ticket-card-3d {
+            width: 100%; height: 175px; background: rgba(15, 23, 42, 0.9);
+            border: 2px solid rgba(56, 189, 248, 0.5); border-radius: 14px;
+            overflow: hidden; position: relative; transform-style: preserve-3d;
+            animation: ticketTilt 6s ease-in-out infinite alternate;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.7), 0 0 15px rgba(56, 189, 248, 0.2);
+        }
+        .ticket-card-3d img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .ticket-card-3d:hover img { transform: scale(1.08); }
+        @keyframes ticketTilt {
+            0% { transform: perspective(800px) rotateX(10deg) rotateY(-10deg); }
+            100% { transform: perspective(800px) rotateX(-10deg) rotateY(10deg); }
+        }
+
+        .virtual-ticket-box {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            border: 2px dashed #38bdf8;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8), 0 0 25px rgba(56,189,248,0.3);
+            margin: 20px 0;
+            transform-style: preserve-3d;
+            animation: virtualTicketReveal 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes virtualTicketReveal {
+            0% { transform: scale(0.8) rotateX(30deg); opacity: 0; }
+            100% { transform: scale(1) rotateX(0deg); opacity: 1; }
+        }
+
+        .vt-header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 12px; margin-bottom: 15px;
+        }
+        .vt-title { font-size: 14px; font-weight: 800; color: #f97316; letter-spacing: 1px; }
+        .vt-code-badge {
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid #38bdf8; color: #38bdf8;
+            padding: 6px 12px; border-radius: 8px; font-weight: 800; font-size: 14px;
+            letter-spacing: 1.5px; text-shadow: 0 0 10px rgba(56,189,248,0.5);
+        }
+        .vt-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13px; margin-bottom: 15px;
+        }
+        .vt-item label { color: #94a3b8; font-size: 11px; margin-bottom: 2px; text-transform: uppercase; }
+        .vt-item span { color: #f8fafc; font-weight: 600; font-size: 13px; }
+
+        .match-info-text { color: #94a3b8; font-size: 13px; margin: 4px 0; }
+        .page-view { display: none; }
+        .page-view.active { display: block; }
+        .back-link {
+            display: inline-block; color: #38bdf8; font-size: 13px; font-weight: 600;
+            text-decoration: none; margin-bottom: 15px; cursor: pointer;
+        }
+        .back-link:hover { color: #f97316; text-decoration: underline; }
+        footer { text-align: center; margin-top: 25px; color: #94a3b8; font-size: 12px; text-shadow: 0 2px 5px rgba(0,0,0,0.8); }
+    </style>
+</head>
+<body>
+
+    <div id="intro-overlay">
+        <div class="anim-logo-wrap">
+            <img src="bluegadies logo.png" alt="Blue Gadies Logo">
+        </div>
+        <div class="anim-title">BLUE GADIES</div>
+    </div>
+
+    <div class="container">
+        
+        <div class="header-card">
+            <div class="header-logo-badge">
+                <img src="bluegadies logo.png" alt="Blue Gadies Logo">
+            </div>
+            <div class="club-tag">Thrissur Magic FC Official Supporters Club</div>
+            <h1>OFFICIAL FANS <span>PORTAL</span> (2026-27)</h1>
+            <p class="subtitle">Paint the stands in orange and blue for the upcoming Super League Kerala season!</p>
+        </div>
+
+        <div class="cover-showcase-wrapper" id="coverContainer">
+            <div class="cover-card-3d" id="coverCard">
+                <img src="image_3.png" alt="Thrissur Magic FC Cover Image" class="cover-image" onerror="this.src='https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1000&q=80'">
+                <div class="light-ray"></div>
+                <div class="glint-effect"></div>
+                <canvas id="dustCanvas"></canvas>
+                <div class="vignette"></div>
+            </div>
+        </div>
+
+        <div id="page-match" class="page-view active">
+            
+            <div class="card" style="border: 2px solid rgba(56, 189, 248, 0.4);">
+                <div class="slk-live-badge">🔴 Super League Kerala • Analyzed Standings</div>
+                <div class="section-title">⚽ Thrissur Magic FC Fixtures & Current Standings</div>
+                <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 15px;">
+                    Track live match updates, analysis-based points table, and upcoming matches curated exclusively for Blue Gadies.
+                </p>
+
+                <h3 style="font-size: 14px; color: #38bdf8; margin-bottom: 10px;">📅 Thrissur Magic Matches</h3>
+                <div class="matches-grid">
+                    <div class="match-fixture-card">
+                        <div>
+                            <div class="fixture-teams">Kannur Warriors vs Thrissur Magic FC</div>
+                            <div class="fixture-meta">Opening Match • Completed</div>
+                        </div>
+                        <div class="fixture-status" style="color: #ef4444;">0 - 1</div>
+                    </div>
+                    <div class="match-fixture-card">
+                        <div>
+                            <div class="fixture-teams">Thrissur Magic FC vs Forca Kochi FC</div>
+                            <div class="fixture-meta">Oct 1, 2026 • Thrissur Corporation Stadium</div>
+                        </div>
+                        <div class="fixture-status">7:30 PM</div>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 14px; color: #f97316; margin: 20px 0 10px 0;">🏆 Super League Kerala Points Table (Analyzed)</h3>
+                <div class="table-wrapper">
+                    <table class="standings-table">
+                        <thead>
+                            <tr>
+                                <th>Pos</th>
+                                <th>Team</th>
+                                <th>P</th>
+                                <th>W</th>
+                                <th>D</th>
+                                <th>L</th>
+                                <th>GF</th>
+                                <th>GA</th>
+                                <th>GD</th>
+                                <th>Pts</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Kannur Warriors FC</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>+1</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Calicut FC</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Forca Kochi FC</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Malappuram FC</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Thiruvananthapuram Kombans</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr class="highlight-team">
+                                <td>6</td>
+                                <td>Thrissur Magic FC ⚡</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>-1</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card" style="border: 2px solid rgba(249, 115, 22, 0.4);">
+                <div class="section-title">🎫 Match Ticket + Jersey Combo Offer</div>
+                <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px;">
+                    Grab your official match day combo! Book your ticket and club jersey together securely under Blue Gadies name.
+                </p>
+
+                <div class="match-showcase">
+                    <div class="teams-container">
+                        <div class="team-logo-box" title="Thrissur Magic FC">
+                            <img src="logo.png" alt="Thrissur Magic FC">
+                        </div>
+                        <div class="vs-text">VS</div>
+                        <div class="team-logo-box" title="Forca Kochi FC">
+                            <img src="image_8.png" alt="Forca Kochi FC">
+                        </div>
+                    </div>
+                    <div style="font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 8px;">Thrissur Magic FC vs Forca Kochi FC</div>
+                    <div class="match-info-text">📅 <strong>Date:</strong> October 1, 2026</div>
+                    <div class="match-info-text">⏰ <strong>Time:</strong> 07:30 PM</div>
+                    <div class="match-info-text">🏟️ <strong>Venue:</strong> Thrissur Corporation Stadium</div>
+                </div>
+
+                <div class="jersey-showcase-container">
+                    <div class="jersey-card-3d">
+                        <img src="image_7.png" alt="Official Jersey">
+                    </div>
+                    <div style="text-align: center; color: #38bdf8; font-size: 12px; font-weight: 700; letter-spacing: 1px; margin-top: 8px;">⚡ OFFICIAL MATCH JERSEY PREVIEW ⚡</div>
+                </div>
+
+                <div class="ticket-showcase-container">
+                    <div class="ticket-card-3d">
+                        <img src="image_9.png" alt="Match Ticket">
+                    </div>
+                    <div style="text-align: center; color: #f97316; font-size: 12px; font-weight: 700; letter-spacing: 1px; margin-top: 6px;">🎟️ MATCH TICKET PREVIEW 🎟️</div>
+                </div>
+
+                <button type="button" class="btn" onclick="switchPage('form')">Combo Book 🎟️</button>
+            </div>
+
+            <div class="card">
+                <div class="section-title">🛡️ About Blue Gadies</div>
+                <p class="about-text">
+                    We are the official heartbeat and supporters crew of <strong>Thrissur Magic FC</strong>. Driven by pure passion for our soil and club, we unite to create an unmatched stadium atmosphere, unforgettable chants, and top-tier media narratives throughout the Super League Kerala campaign.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="section-title">🔥 Creator's Squad Recruitment</div>
+                <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px;">
+                    Note: This is an unpaid, passion-driven volunteer role. We are looking for dedicated individuals ready to stay active all season long.
+                </p>
+
+                <div class="roles">
+                    <div class="role-box">🎥 Videographers</div>
+                    <div class="role-box">💻 Video Editors</div>
+                    <div class="role-box">🎨 Graphics Designers</div>
+                </div>
+
+                <form id="mediaForm" onsubmit="handleWhatsAppSubmit(event)" style="margin-top: 25px;">
+                    <div class="form-group">
+                        <label>Full Name:</label>
+                        <input type="text" id="fullName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Age:</label>
+                        <input type="number" id="age" placeholder="Enter your age" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Place / Location:</label>
+                        <input type="text" id="place" placeholder="e.g., Thrissur" required>
+                    </div>
+                    <div class="form-group">
+                        <label>WhatsApp Number:</label>
+                        <input type="tel" id="whatsapp" placeholder="e.g., +91 81295 43311" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Instagram Handle / ID:</label>
+                        <input type="text" id="instaId" placeholder="e.g., @bluegadies" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Role Applying For:</label>
+                        <select id="role" required>
+                            <option value="">-- Select Your Role --</option>
+                            <option value="Videographer">Videographer</option>
+                            <option value="Video Editor">Video Editor</option>
+                            <option value="Graphics Designer">Graphics Designer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Portfolio / Previous Work Links:</label>
+                        <textarea id="portfolio" rows="3" placeholder="Paste your work links here..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="commitment" required>
+                            <span>I understand that this is an unpaid, passion-driven volunteer role supporting Blue Gadies, and I commit to staying active throughout the entire season.</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn">Submit Application to WhatsApp</button>
+                </form>
+            </div>
+
+        </div>
+
+        <div id="page-form" class="page-view">
+            <div class="card" style="border: 2px solid rgba(249, 115, 22, 0.4);">
+                <a class="back-link" onclick="switchPage('match')">&larr; Back to Match Details</a>
+                <div class="section-title">📝 Ticket + Jersey Combo Booking Details</div>
+                <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px;">
+                    Please fill out your details correctly to secure your combo booking.
+                </p>
+
+                <form id="comboBookingForm" onsubmit="handleComboSubmit(event)">
+                    <div class="form-group">
+                        <label>Name:</label>
+                        <input type="text" id="comboName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Place:</label>
+                        <input type="text" id="comboPlace" placeholder="e.g., Thrissur" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number:</label>
+                        <input type="tel" id="comboPhone" placeholder="e.g., +91 99475 42829" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Gmail ID:</label>
+                        <input type="email" id="comboEmail" placeholder="e.g., example@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>How many tickets:</label>
+                        <select id="comboTickets" required>
+                            <option value="">-- Select number of tickets (1-10) --</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>UPI ID Number:</label>
+                        <input type="text" id="comboUpi" placeholder="e.g., username@oksbi" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Transaction ID / UPI Reference Number:</label>
+                        <input type="text" id="comboTxId" placeholder="Enter 12-digit UPI Transaction Reference Number" required>
+                    </div>
+                    <button type="submit" class="btn btn-whatsapp">Generate Virtual Ticket 🎟️</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="page-success" class="page-view">
+            <div class="card" style="border: 2px solid rgba(56, 189, 248, 0.6); text-align: center;">
+                <div class="section-title" style="justify-content: center;">🎉 Booking Successful!</div>
+                <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 10px;">
+                    Your virtual ticket has been generated successfully with your unique reference code.
+                </p>
+
+                <div class="virtual-ticket-box">
+                    <div class="vt-header">
+                        <div class="vt-title">⚡ BLUE GADIES PASS</div>
+                        <div class="vt-code-badge" id="displayTicketCode">BG-2026-XXXX</div>
+                    </div>
+                    <div class="vt-grid">
+                        <div class="vt-item">
+                            <label>Name</label>
+                            <span id="displayTicketName">-</span>
+                        </div>
+                        <div class="vt-item">
+                            <label>Match</label>
+                            <span>Thrissur vs Forca Kochi</span>
+                        </div>
+                        <div class="vt-item">
+                            <label>Tickets Count</label>
+                            <span id="displayTicketCount">-</span>
+                        </div>
+                        <div class="vt-item">
+                            <label>Transaction ID</label>
+                            <span id="displayTicketTx">-</span>
+                        </div>
+                    </div>
+                    <div style="font-size: 11px; color: #94a3b8; text-align: center; border-top: 1px dashed rgba(255,255,255,0.15); padding-top: 10px;">
+                        Keep this ticket code safe to verify your entry and records.
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-whatsapp" id="whatsappSendBtn" onclick="openWhatsAppWithTicket()" style="margin-bottom: 15px;">Send Confirmation to WhatsApp 📲</button>
+                <a class="back-link" onclick="switchPage('match')">&larr; Back to Home Portal</a>
+            </div>
+        </div>
+
+        <div class="card" style="text-align: center;">
+            <div class="section-title" style="justify-content: center;">📞 Connect With Us</div>
+            <p style="color: #cbd5e1; font-size: 13px; margin-bottom: 15px;">Have queries? Reach out to us directly through our official handles.</p>
+            <div class="contact-box">
+                <a href="https://wa.me/919947542829" target="_blank" class="contact-item">💬 WhatsApp: +91 99475 42829</a>
+                <a href="https://instagram.com/bluegadies" target="_blank" class="contact-item">📸 Instagram: @bluegadies</a>
+            </div>
+        </div>
+
+        <footer>
+            &copy; 2026 Blue Gadies Supporters Club. All Rights Reserved.
+        </footer>
+    </div>
+
+    <script>
+        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw11WH7dYG8Hn15B8-tU1dC4odHaaI1mrzR_lRYJzFDYxEUDDzkUBWydz4huP7ORNdl/exec";
+        let currentBookingData = null;
+
+        function switchPage(pageId) {
+            document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+            if(pageId === 'match') {
+                document.getElementById('page-match').classList.add('active');
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            } else if(pageId === 'form') {
+                document.getElementById('page-form').classList.add('active');
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            } else if(pageId === 'success') {
+                document.getElementById('page-success').classList.add('active');
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }
+        }
+
+        function handleWhatsAppSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById("fullName").value;
+            const age = document.getElementById("age").value;
+            const place = document.getElementById("place").value;
+            const whatsapp = document.getElementById("whatsapp").value;
+            const instaId = document.getElementById("instaId").value;
+            const role = document.getElementById("role").value;
+            const portfolio = document.getElementById("portfolio").value;
+
+            const formData = {
+                name: name + " (Age: " + age +")",
+                place: place,
+                phone: whatsapp,
+                email: instaId,
+                tickets: "N/A",
+                upi: "N/A",
+                screenshot: portfolio,
+                type: "Media Team Application: " + role
+            };
+
+            fetch(WEB_APP_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            }).catch(err => console.log(err));
+
+            const myPhoneNumber = "919947542829";
+            const message = "*NEW MEDIA TEAM APPLICATION - BLUE GADIES*\n\n" +
+                            "Name: " + name + "\n" +
+                            "Age: " + age + "\n" +
+                            "Place: " + place + "\n" +
+                            "Contact: " + whatsapp + "\n" +
+                            "Instagram: " + instaId + "\n" +
+                            "Role: " + role + "\n" +
+                            "Portfolio: " + portfolio + "\n\n" +
+                            "_Submitted via Official Portal_";
+
+            window.open("https://wa.me/" + myPhoneNumber + "?text=" + encodeURIComponent(message), '_blank');
+        }
+
+        function handleComboSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById("comboName").value;
+            const place = document.getElementById("comboPlace").value;
+            const phone = document.getElementById("comboPhone").value;
+            const email = document.getElementById("comboEmail").value;
+            const tickets = document.getElementById("comboTickets").value;
+            const upi = document.getElementById("comboUpi").value;
+            const txId = document.getElementById("comboTxId").value;
+            const uniqueTicketCode = "BG-2026-" + Math.floor(1000 + Math.random() * 9000);
+
+            currentBookingData = { name, place, phone, email, tickets, upi, txId, ticketCode: uniqueTicketCode };
+
+            fetch(WEB_APP_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name, place, phone, email, tickets, upi,
+                    screenshot: "Code: " + uniqueTicketCode + " | TxID: " + txId,
+                    type: "Ticket + Jersey Combo"
+                })
+            }).catch(err => console.log(err));
+
+            document.getElementById("displayTicketCode").innerText = uniqueTicketCode;
+            document.getElementById("displayTicketName").innerText = name;
+            document.getElementById("displayTicketCount").innerText = tickets + " Ticket(s)";
+            document.getElementById("displayTicketTx").innerText = txId;
+
+            switchPage('success');
+        }
+
+        function openWhatsAppWithTicket() {
+            if (!currentBookingData) return;
+            const message = "*🎟️ OFFICIAL TICKET + JERSEY COMBO BOOKING*\n\n" +
+                            "🔑 *Ticket Code:* " + currentBookingData.ticketCode + "\n\n" +
+                            "Match: Thrissur Magic FC vs Forca Kochi FC\n" +
+                            "Name: " + currentBookingData.name + "\n" +
+                            "Place: " + currentBookingData.place + "\n" +
+                            "Phone: " + currentBookingData.phone + "\n" +
+                            "No. of Tickets: " + currentBookingData.tickets + "\n" +
+                            "Transaction ID (UTR): " + currentBookingData.txId;
+
+            window.open("https://wa.me/919947542829?text=" + encodeURIComponent(message), '_blank');
+        }
+
+        const coverContainer = document.getElementById('coverContainer');
+        const coverCard = document.getElementById('coverCard');
+        coverContainer.addEventListener('mousemove', (e) => {
+            const rect = coverContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            coverCard.style.transform = `rotateX(${(-y / rect.height) * 12}deg) rotateY(${(x / rect.width) * 12}deg) scale(1.02)`;
+        });
+        coverContainer.addEventListener('mouseleave', () => {
+            coverCard.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
+            coverCard.style.transition = 'transform 0.5s ease-out';
+        });
+        coverContainer.addEventListener('mouseenter', () => { coverCard.style.transition = 'none'; });
+
+        const canvas = document.getElementById('dustCanvas');
+        const ctx = canvas.getContext('2d');
+        function resizeCanvas() {
+            canvas.width = coverCard.offsetWidth;
+            canvas.height = coverCard.offsetHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const particles = [];
+        for (let i = 0; i < 40; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 2 + 0.5,
+                color: Math.random() > 0.5 ? 'rgba(255, 215, 0, 0.7)' : 'rgba(255, 255, 255, 0.5)',
+                speedX: (Math.random() - 0.5) * 0.4,
+                speedY: -Math.random() * 0.6 - 0.2
+            });
+        }
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.x += p.speedX; p.y += p.speedY;
+                if (p.y < 0) { p.y = canvas.height; p.x = Math.random() * canvas.width; }
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+    </script>
+</body>
+</html>
