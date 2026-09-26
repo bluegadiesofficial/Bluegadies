@@ -127,7 +127,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Card Styles for PC and Mobile Optimization */
         .card {
             background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
@@ -147,7 +146,6 @@
             .card { padding: 30px; border-radius: 22px; margin-bottom: 24px; }
         }
 
-        /* Header Card Specific */
         .header-card {
             background: linear-gradient(145deg, rgba(15, 23, 42, 0.92), rgba(26, 36, 51, 0.88));
             border: 1px solid rgba(249, 115, 22, 0.45);
@@ -175,7 +173,6 @@
             50% { transform: scale(1.04); }
         }
 
-        /* One-line Title Formatting optimized for mobile screens */
         .club-tag-main {
             font-size: 10px; font-weight: 800; letter-spacing: 1px;
             color: #38bdf8; text-transform: uppercase; margin-bottom: 6px;
@@ -198,40 +195,50 @@
         .subtitle { color: #94a3b8; font-size: 11px; max-width: 480px; margin: 0 auto; font-weight: 500; }
         @media(min-width: 768px) { .subtitle { font-size: 13px; } }
 
-        /* 3D Realistic Zoom & Cloth/Around Animations for Jersey & Ticket */
+        /* Combined Combo Showcase Design */
+        .combo-showcase-box {
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(26, 36, 51, 0.9));
+            border: 2px solid rgba(249, 115, 22, 0.4);
+            border-radius: 16px;
+            padding: 16px 12px;
+            margin: 14px 0;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        }
+
         .showcase-3d-wrapper {
-            margin: 12px 0 16px 0;
+            margin: 10px 0;
             perspective: 1000px;
         }
         
         .jersey-card-3d {
-            width: 100%; max-width: 300px; height: 280px; margin: 0 auto;
-            background: radial-gradient(circle, rgba(249, 115, 22, 0.2) 0%, rgba(15, 23, 42, 0.95) 80%);
-            border: 2px solid rgba(249, 115, 22, 0.55); border-radius: 20px;
+            width: 100%; max-width: 280px; height: 240px; margin: 0 auto;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, rgba(15, 23, 42, 0.9) 80%);
+            border: 1px solid rgba(249, 115, 22, 0.4); border-radius: 16px;
             display: flex; align-items: center; justify-content: center;
             position: relative; overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.7), inset 0 0 20px rgba(249, 115, 22, 0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
             animation: cardFloat3d 5s ease-in-out infinite alternate;
             transform-style: preserve-3d;
         }
-        @media(min-width: 768px) { .jersey-card-3d { max-width: 340px; height: 320px; } }
+        @media(min-width: 768px) { .jersey-card-3d { max-width: 320px; height: 280px; } }
         
         .jersey-card-3d img {
-            width: 92%; height: 92%; object-fit: contain;
+            width: 90%; height: 90%; object-fit: contain;
             animation: clothZoomWave 4.5s ease-in-out infinite alternate;
-            filter: drop-shadow(0 12px 20px rgba(0,0,0,0.8));
+            filter: drop-shadow(0 10px 18px rgba(0,0,0,0.8));
         }
 
         .ticket-card-3d {
-            width: 100%; max-width: 300px; height: 165px; margin: 0 auto;
+            width: 100%; max-width: 280px; height: 150px; margin: 0 auto;
             background: rgba(15, 23, 42, 0.95);
-            border: 2px solid rgba(56, 189, 248, 0.5); border-radius: 14px;
+            border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 12px;
             overflow: hidden; position: relative;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.7), inset 0 0 15px rgba(56, 189, 248, 0.12);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
             animation: cardFloat3d 4.5s ease-in-out infinite alternate-reverse;
             transform-style: preserve-3d;
         }
-        @media(min-width: 768px) { .ticket-card-3d { max-width: 340px; height: 185px; } }
+        @media(min-width: 768px) { .ticket-card-3d { max-width: 320px; height: 170px; } }
 
         .ticket-card-3d img {
             width: 100%; height: 100%; object-fit: cover;
@@ -239,34 +246,34 @@
         }
 
         @keyframes cardFloat3d {
-            0% { transform: translateY(0px) rotateX(1.5deg) rotateY(-1.5deg); }
-            100% { transform: translateY(-6px) rotateX(-1.5deg) rotateY(1.5deg); }
+            0% { transform: translateY(0px) rotateX(1deg) rotateY(-1deg); }
+            100% { transform: translateY(-4px) rotateX(-1deg) rotateY(1deg); }
         }
 
         @keyframes clothZoomWave {
-            0% { transform: scale(1.06) rotate(0deg); }
-            50% { transform: scale(1.14) rotate(1deg) skew(0.4deg); }
-            100% { transform: scale(1.10) rotate(-1deg) skew(-0.4deg); }
+            0% { transform: scale(1.04) rotate(0deg); }
+            50% { transform: scale(1.10) rotate(0.8deg); }
+            100% { transform: scale(1.06) rotate(-0.8deg); }
         }
 
         @keyframes ticketZoomWave {
-            0% { transform: scale(1.04); }
-            50% { transform: scale(1.12) rotateZ(0.6deg); }
-            100% { transform: scale(1.07) rotateZ(-0.6deg); }
+            0% { transform: scale(1.02); }
+            50% { transform: scale(1.08) rotateZ(0.4deg); }
+            100% { transform: scale(1.04) rotateZ(-0.4deg); }
         }
 
-        /* Lighting Sweep Effect across Assets */
-        .asset-glow-sweep {
-            position: absolute; top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.1) 50%, transparent 60%);
-            transform: rotate(30deg); pointer-events: none;
-            animation: sweepLight 4.5s infinite linear;
+        /* Realistic Glazing 3D Graphics Animation Effect (No Glow) */
+        .asset-glaze-sweep {
+            position: absolute; top: -100%; left: -100%;
+            width: 300%; height: 300%;
+            background: linear-gradient(135deg, transparent 42%, rgba(255, 255, 255, 0.18) 48%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0.18) 52%, transparent 58%);
+            transform: rotate(25deg); pointer-events: none;
+            animation: glazeSweepAnim 4.2s infinite ease-in-out;
         }
 
-        @keyframes sweepLight {
-            0% { transform: translateY(-100%) rotate(30deg); }
-            100% { transform: translateY(100%) rotate(30deg); }
+        @keyframes glazeSweepAnim {
+            0% { transform: translateY(-120%) translateX(-120%) rotate(25deg); }
+            100% { transform: translateY(120%) translateX(120%) rotate(25deg); }
         }
 
         /* Standard Elements */
@@ -399,7 +406,6 @@
         }
         .team-logo-box img {
             width: 100%; height: 100%; object-fit: contain;
-            filter: drop-shadow(0 4px 12px rgba(249, 115, 22, 0.5));
         }
 
         .vs-text {
@@ -461,13 +467,13 @@
 
     <div class="container">
         
-        <!-- Header Card with exact heading requirements -->
+        <!-- Header Card: Year removed, only Blue Gadies Fans Portal -->
         <div class="card header-card">
             <div class="header-logo-badge">
                 <img src="bluegadies logo.png" alt="Blue Gadies Logo">
             </div>
             <div class="club-tag-main">Thrissur Magic FC Official Supporters Club</div>
-            <h1 class="main-title">BLUE GADIES FANS PORTAL (2026-27)</h1>
+            <h1 class="main-title">BLUE GADIES FANS PORTAL</h1>
             <p class="subtitle">Paint the stands in orange and blue for the upcoming Super League Kerala season!</p>
         </div>
 
@@ -593,6 +599,7 @@
                 </div>
             </div>
 
+            <!-- Combined Jersey & Ticket Showcase Card (No Text Below Assets) -->
             <div class="card" style="border: 2px solid rgba(249, 115, 22, 0.35);">
                 <div class="section-title">🎫 Match Ticket + Jersey Combo Offer</div>
                 <p style="font-size: 11px; color: #cbd5e1; margin-bottom: 14px;">
@@ -615,22 +622,23 @@
                     <div class="match-info-text">🏟️ <strong>Venue:</strong> Thrissur Corporation Stadium</div>
                 </div>
 
-                <!-- Realistic 3D Zoom & Cloth Animated Jersey -->
-                <div class="showcase-3d-wrapper">
-                    <div class="jersey-card-3d">
-                        <img src="image_7.png" alt="Official Jersey Preview">
-                        <div class="asset-glow-sweep"></div>
+                <!-- Combined Combo Container -->
+                <div class="combo-showcase-box">
+                    <!-- Jersey with 3D Glaze Effect -->
+                    <div class="showcase-3d-wrapper">
+                        <div class="jersey-card-3d">
+                            <img src="image_7.png" alt="Official Jersey Preview">
+                            <div class="asset-glaze-sweep"></div>
+                        </div>
                     </div>
-                    <div style="text-align: center; color: #38bdf8; font-size: 10px; font-weight: 800; letter-spacing: 1px; margin-top: 8px;">⚡ 3D REALISTIC JERSEY ZOOM PREVIEW ⚡</div>
-                </div>
 
-                <!-- Realistic 3D Floating Ticket Preview -->
-                <div class="showcase-3d-wrapper">
-                    <div class="ticket-card-3d">
-                        <img src="image_9.png" alt="Match Ticket Preview">
-                        <div class="asset-glow-sweep"></div>
+                    <!-- Ticket with 3D Glaze Effect -->
+                    <div class="showcase-3d-wrapper">
+                        <div class="ticket-card-3d">
+                            <img src="image_9.png" alt="Match Ticket Preview">
+                            <div class="asset-glaze-sweep"></div>
+                        </div>
                     </div>
-                    <div style="text-align: center; color: #f97316; font-size: 10px; font-weight: 800; letter-spacing: 1px; margin-top: 8px;">🎟️ 3D DYNAMIC TICKET PREVIEW 🎟️</div>
                 </div>
 
                 <button type="button" class="btn" onclick="switchPage('form')" style="margin-top: 12px;">Combo Book 🎟️</button>
@@ -720,7 +728,7 @@
                     </div>
                     <div class="form-group">
                         <label>Phone Number:</label>
-                        <input type="tel" id="comboPhone" placeholder="e.g., +91 99475 42829" required>
+                        <input type="tel" id="comboPhone" placeholder="e.g., +91 81295 43311" required>
                     </div>
                     <div class="form-group">
                         <label>Gmail ID:</label>
@@ -799,7 +807,7 @@
             <div class="section-title" style="justify-content: center;">📞 Connect With Us</div>
             <p style="color: #cbd5e1; font-size: 11px; margin-bottom: 12px;">Have queries? Reach out to us directly.</p>
             <div class="contact-box">
-                <a href="https://wa.me/919947542829" target="_blank" class="contact-item">💬 WhatsApp</a>
+                <a href="https://wa.me/918129543311" target="_blank" class="contact-item">💬 WhatsApp</a>
                 <a href="https://instagram.com/bluegadies" target="_blank" class="contact-item">📸 Instagram</a>
             </div>
         </div>
@@ -853,7 +861,7 @@
                 body: JSON.stringify(formData)
             }).catch(err => console.log(err));
 
-            const myPhoneNumber = "919947542829";
+            const myPhoneNumber = "918129543311";
             const message = "*NEW MEDIA TEAM APPLICATION - BLUE GADIES*\n\n" +
                             "Name: " + name + "\n" +
                             "Age: " + age + "\n" +
@@ -870,7 +878,7 @@
         function handleComboSubmit(event) {
             event.preventDefault();
             const name = document.getElementById("comboName").value;
-            const place = document.getElementById("comboPlacephp" || "comboPlace").value;
+            const place = document.getElementById("comboPlace").value;
             const phone = document.getElementById("comboPhone").value;
             const email = document.getElementById("comboEmail").value;
             const tickets = document.getElementById("comboTickets").value;
@@ -901,16 +909,17 @@
 
         function openWhatsAppWithTicket() {
             if (!currentBookingData) return;
+            const myPhoneNumber = "918129543311";
             const message = "*🎟️ OFFICIAL TICKET + JERSEY COMBO BOOKING*\n\n" +
                             "🔑 *Ticket Code:* " + currentBookingData.ticketCode + "\n\n" +
                             "Match: Thrissur Magic FC vs Forca Kochi FC\n" +
                             "Name: " + currentBookingData.name + "\n" +
                             "Place: " + currentBookingData.place + "\n" +
-                            "Phone: " + currentGeneratorData = currentBookingData.phone + "\n" +
+                            "Phone: " + currentBookingData.phone + "\n" +
                             "No. of Tickets: " + currentBookingData.tickets + "\n" +
                             "Transaction ID (UTR): " + currentBookingData.txId;
 
-            window.open("https://wa.me/919947542829?text=" + encodeURIComponent(message), '_blank');
+            window.open("https://wa.me/" + myPhoneNumber + "?text=" + encodeURIComponent(message), '_blank');
         }
     </script>
 </body>
