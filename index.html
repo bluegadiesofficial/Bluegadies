@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blue Gadies | Official Fans Portal</title>
     <meta property="og:title" content="Blue Gadies | Official Fans Portal">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -67,7 +67,7 @@
         .anim-logo-wrap {
             width: 160px; height: 160px;
             display: flex; justify-content: center; align-items: center;
-            background: radial-gradient(circle, rgba(249, 115, 22, 0.25) 0%, transparent 70%);
+            /* Removed heavy glow from logo wrapper */
             animation: logo3dFloat 2.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
             transform-style: preserve-3d;
             margin-bottom: 15px;
@@ -75,11 +75,13 @@
 
         .anim-logo-wrap img {
             width: 100%; height: 100%; object-fit: contain;
-            filter: drop-shadow(0 15px 35px rgba(249, 115, 22, 0.6)) drop-shadow(0 5px 15px rgba(56, 189, 248, 0.5));
+            /* Removed excessive drop-shadow glow */
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6));
         }
 
         .anim-title {
-            font-size: 22px; font-weight: 900; letter-spacing: 2px;
+            font-family: 'Cinzel', serif;
+            font-size: 24px; font-weight: 700; letter-spacing: 2px;
             background: linear-gradient(135deg, #38bdf8 20%, #ffffff 50%, #f97316 80%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             opacity: 0;
@@ -140,7 +142,7 @@
         .card:hover {
             transform: translateY(-3px);
             border-color: rgba(249, 115, 22, 0.5);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8), inset 0 0 15px rgba(249, 115, 22, 0.08);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
         }
         @media(min-width: 768px) {
             .card { padding: 30px; border-radius: 22px; margin-bottom: 24px; }
@@ -154,18 +156,17 @@
         .header-card::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
             background: linear-gradient(90deg, #38bdf8, #f97316);
-            box-shadow: 0 0 12px #f97316;
         }
         
         .header-logo-badge {
             width: 90px; height: 90px;
             margin: 0 auto 12px auto; display: flex; justify-content: center; align-items: center;
-            background: radial-gradient(circle, rgba(249, 115, 22, 0.2) 0%, transparent 75%);
+            /* Removed heavy glow */
             animation: badgePulse 4s ease-in-out infinite;
         }
         .header-logo-badge img {
             width: 100%; height: 100%; object-fit: contain;
-            filter: drop-shadow(0 0 18px rgba(249, 115, 22, 0.6));
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
         }
 
         @keyframes badgePulse {
@@ -181,7 +182,8 @@
         @media(min-width: 768px) { .club-tag-main { font-size: 12px; letter-spacing: 1.5px; } }
 
         h1.main-title {
-            font-size: 15px; font-weight: 900; letter-spacing: 0.5px;
+            font-family: 'Cinzel', serif;
+            font-size: 18px; font-weight: 700; letter-spacing: 1px;
             background: linear-gradient(135deg, #38bdf8 15%, #ffffff 50%, #f97316 85%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             margin-bottom: 8px;
@@ -190,7 +192,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        @media(min-width: 768px) { h1.main-title { font-size: 23px; letter-spacing: 1px; } }
+        @media(min-width: 768px) { h1.main-title { font-size: 26px; letter-spacing: 1.5px; } }
 
         .subtitle { color: #94a3b8; font-size: 11px; max-width: 480px; margin: 0 auto; font-weight: 500; }
         @media(min-width: 768px) { .subtitle { font-size: 13px; } }
@@ -213,7 +215,7 @@
         
         .jersey-card-3d {
             width: 100%; max-width: 280px; height: 240px; margin: 0 auto;
-            background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, rgba(15, 23, 42, 0.9) 80%);
+            background: rgba(15, 23, 42, 0.9);
             border: 1px solid rgba(249, 115, 22, 0.4); border-radius: 16px;
             display: flex; align-items: center; justify-content: center;
             position: relative; overflow: hidden;
@@ -262,18 +264,18 @@
             100% { transform: scale(1.04) rotateZ(-0.4deg); }
         }
 
-        /* Realistic Glazing 3D Graphics Animation Effect (No Glow) */
+        /* Realistic Glazing Animation Effect (Clean sweep light, no glow) */
         .asset-glaze-sweep {
-            position: absolute; top: -100%; left: -100%;
-            width: 300%; height: 300%;
-            background: linear-gradient(135deg, transparent 42%, rgba(255, 255, 255, 0.18) 48%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0.18) 52%, transparent 58%);
+            position: absolute; top: -150%; left: -150%;
+            width: 400%; height: 400%;
+            background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.0) 46%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.0) 54%, transparent 60%);
             transform: rotate(25deg); pointer-events: none;
-            animation: glazeSweepAnim 4.2s infinite ease-in-out;
+            animation: glazeSweepAnim 3.5s infinite ease-in-out;
         }
 
         @keyframes glazeSweepAnim {
-            0% { transform: translateY(-120%) translateX(-120%) rotate(25deg); }
-            100% { transform: translateY(120%) translateX(120%) rotate(25deg); }
+            0% { transform: translateY(-100%) translateX(-100%) rotate(25deg); }
+            100% { transform: translateY(100%) translateX(100%) rotate(25deg); }
         }
 
         /* Standard Elements */
@@ -467,7 +469,7 @@
 
     <div class="container">
         
-        <!-- Header Card: Year removed, only Blue Gadies Fans Portal -->
+        <!-- Header Card -->
         <div class="card header-card">
             <div class="header-logo-badge">
                 <img src="bluegadies logo.png" alt="Blue Gadies Logo">
@@ -599,7 +601,7 @@
                 </div>
             </div>
 
-            <!-- Combined Jersey & Ticket Showcase Card (No Text Below Assets) -->
+            <!-- Combined Jersey & Ticket Showcase Card -->
             <div class="card" style="border: 2px solid rgba(249, 115, 22, 0.35);">
                 <div class="section-title">🎫 Match Ticket + Jersey Combo Offer</div>
                 <p style="font-size: 11px; color: #cbd5e1; margin-bottom: 14px;">
@@ -624,7 +626,7 @@
 
                 <!-- Combined Combo Container -->
                 <div class="combo-showcase-box">
-                    <!-- Jersey with 3D Glaze Effect -->
+                    <!-- Jersey with Realistic Glazing Effect -->
                     <div class="showcase-3d-wrapper">
                         <div class="jersey-card-3d">
                             <img src="image_7.png" alt="Official Jersey Preview">
@@ -632,7 +634,7 @@
                         </div>
                     </div>
 
-                    <!-- Ticket with 3D Glaze Effect -->
+                    <!-- Ticket with Realistic Glazing Effect -->
                     <div class="showcase-3d-wrapper">
                         <div class="ticket-card-3d">
                             <img src="image_9.png" alt="Match Ticket Preview">
