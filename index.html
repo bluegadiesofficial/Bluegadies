@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue Gadies | Official Fans Portal & Cinematic Cover</title>
+    <title>Blue Gadies | Official Fans Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -63,13 +63,12 @@
         }
 
         .anim-logo-wrap {
-            width: 250px; height: 250px;
+            width: 200px; height: 200px;
             display: flex; justify-content: center; align-items: center;
             background: transparent;
             animation: teslaReveal 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             transform-style: preserve-3d;
             overflow: visible;
-            padding: 0;
             margin-bottom: 10px;
         }
 
@@ -79,12 +78,11 @@
         }
 
         .anim-title {
-            font-size: 28px; font-weight: 800; letter-spacing: 5px;
+            font-size: 24px; font-weight: 800; letter-spacing: 4px;
             background: linear-gradient(135deg, #38bdf8, #f97316);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             opacity: 0;
             animation: textReveal 1.2s ease 1s forwards;
-            text-shadow: 0 0 25px rgba(56,189,248,0.5);
             text-align: center;
             padding: 0 15px;
         }
@@ -96,8 +94,8 @@
         }
 
         @keyframes textReveal {
-            from { opacity: 0; transform: translateY(20px); letter-spacing: 10px; }
-            to { opacity: 1; transform: translateY(0); letter-spacing: 5px; }
+            from { opacity: 0; transform: translateY(20px); letter-spacing: 8px; }
+            to { opacity: 1; transform: translateY(0); letter-spacing: 4px; }
         }
 
         @keyframes hideOverlay {
@@ -105,8 +103,11 @@
         }
 
         .container {
-            max-width: 850px; margin: 0 auto; padding: 40px 15px;
+            max-width: 850px; margin: 0 auto; padding: 20px 10px;
             animation: pageFadeIn 1s ease;
+        }
+        @media(min-width: 768px) {
+            .container { padding: 40px 15px; }
         }
         @keyframes pageFadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -114,12 +115,12 @@
         }
 
         .header-card {
-            background: rgba(15, 23, 42, 0.75);
+            background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(249, 115, 22, 0.5);
-            border-radius: 24px; padding: 40px 20px; text-align: center;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.7), inset 0 0 25px rgba(249, 115, 22, 0.15);
-            margin-bottom: 25px; position: relative; overflow: hidden;
+            border-radius: 20px; padding: 25px 15px; text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7), inset 0 0 20px rgba(249, 115, 22, 0.15);
+            margin-bottom: 20px; position: relative; overflow: hidden;
         }
         .header-card::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
@@ -128,10 +129,10 @@
         }
         
         .header-logo-badge {
-            width: 120px; height: 120px;
-            margin: 0 auto 15px auto; display: flex; justify-content: center; align-items: center;
+            width: 90px; height: 90px;
+            margin: 0 auto 12px auto; display: flex; justify-content: center; align-items: center;
             background: transparent; overflow: visible; padding: 0;
-            transition: 0.5s; animation: pulse3D 4s ease-in-out infinite;
+            animation: pulse3D 4s ease-in-out infinite;
         }
         .header-logo-badge img {
             width: 100%; height: 100%; object-fit: contain;
@@ -139,46 +140,37 @@
         }
 
         .club-tag {
-            color: #38bdf8; font-size: 12px; font-weight: 800; letter-spacing: 2px;
-            text-transform: uppercase; margin-bottom: 8px;
-            text-shadow: 0 0 10px rgba(56,189,248,0.5);
+            color: #38bdf8; font-size: 11px; font-weight: 800; letter-spacing: 1.5px;
+            text-transform: uppercase; margin-bottom: 6px;
         }
-        h1 { font-size: 24px; font-weight: 800; color: #ffffff; margin-bottom: 10px; }
-        h1 span { color: #f97316; text-shadow: 0 0 15px rgba(249,115,22,0.6); }
-        .subtitle { color: #94a3b8; font-size: 13px; max-width: 600px; margin: 0 auto; }
+        h1 { font-size: 20px; font-weight: 800; color: #ffffff; margin-bottom: 8px; }
+        @media(min-width: 768px) { h1 { font-size: 26px; } }
+        h1 span { color: #f97316; }
+        .subtitle { color: #94a3b8; font-size: 12px; max-width: 500px; margin: 0 auto; }
 
         .cover-showcase-wrapper {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             perspective: 1000px;
         }
         .cover-card-3d {
             position: relative;
             width: 100%;
             aspect-ratio: 16 / 9;
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(249, 115, 22, 0.2);
-            transform-style: preserve-3d;
-            transition: transform 0.1s ease-out;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
             border: 1px solid rgba(249, 115, 22, 0.4);
             background: #253342;
         }
         .cover-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transform: scale(1.02);
-            transition: transform 0.3s ease;
+            width: 100%; height: 100%; object-fit: cover; display: block;
         }
 
         .light-ray {
-            position: absolute;
-            top: -50%; left: -50%;
+            position: absolute; top: -50%; left: -50%;
             width: 200%; height: 200%;
             background: linear-gradient(45deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0) 100%);
-            transform: rotate(30deg);
-            pointer-events: none;
+            transform: rotate(30deg); pointer-events: none;
             animation: sweepLight 6s infinite linear;
         }
 
@@ -188,12 +180,10 @@
         }
 
         .glint-effect {
-            position: absolute;
-            top: 0; left: -150%;
+            position: absolute; top: 0; left: -150%;
             width: 50%; height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.25), transparent);
-            transform: skewX(-20deg);
-            pointer-events: none;
+            transform: skewX(-20deg); pointer-events: none;
             animation: glintMove 4s infinite ease-in-out;
         }
 
@@ -207,67 +197,52 @@
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;
         }
 
-        .vignette {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.7);
-            pointer-events: none;
-        }
-
         .card {
-            background: rgba(15, 23, 42, 0.7);
+            background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(59, 77, 97, 0.6); border-radius: 20px;
-            padding: 25px 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 0 15px rgba(56, 189, 248, 0.08);
-            margin-bottom: 25px; transition: 0.3s;
+            border: 1px solid rgba(59, 77, 97, 0.6); border-radius: 16px;
+            padding: 20px 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
         }
         @media(min-width: 768px) {
-            .card { padding: 35px; }
-            h1 { font-size: 28px; }
-            .club-tag { font-size: 13px; }
+            .card { padding: 30px; border-radius: 20px; }
         }
 
         .section-title {
-            color: #f97316; font-size: 17px; font-weight: 800; margin-bottom: 15px;
-            display: flex; align-items: center; gap: 10px;
-            text-shadow: 0 0 10px rgba(249,115,22,0.4);
+            color: #f97316; font-size: 15px; font-weight: 800; margin-bottom: 12px;
+            display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
         }
-        .about-text { color: #cbd5e1; font-size: 14px; line-height: 1.7; }
-        @media(min-width: 768px) { .about-text { font-size: 15px; } }
+        @media(min-width: 768px) { .section-title { font-size: 17px; } }
+
+        .about-text { color: #cbd5e1; font-size: 13px; line-height: 1.6; }
+        @media(min-width: 768px) { .about-text { font-size: 14px; } }
 
         .slk-live-badge {
             display: inline-flex; align-items: center; gap: 6px;
             background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444;
-            color: #fca5a5; font-size: 11px; font-weight: 800; padding: 4px 10px;
-            border-radius: 20px; text-transform: uppercase; margin-bottom: 15px;
-            animation: livePulse 2s infinite;
-        }
-        @keyframes livePulse {
-            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
-            70% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+            color: #fca5a5; font-size: 10px; font-weight: 800; padding: 4px 8px;
+            border-radius: 20px; text-transform: uppercase; margin-bottom: 12px;
         }
 
-        .matches-grid {
-            display: grid; gap: 12px; margin-bottom: 15px;
-        }
+        .matches-grid { display: grid; gap: 10px; margin-bottom: 12px; }
         .match-fixture-card {
-            background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(56, 189, 248, 0.25);
-            border-radius: 12px; padding: 15px; display: flex; justify-content: space-between;
-            align-items: center; transition: 0.3s;
+            background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 10px; padding: 12px; display: flex; justify-content: space-between;
+            align-items: center; gap: 10px;
         }
-        .match-fixture-card:hover { border-color: #f97316; transform: translateY(-2px); }
-        .fixture-teams { font-weight: 700; font-size: 13px; color: #f8fafc; }
-        .fixture-meta { font-size: 11px; color: #94a3b8; margin-top: 4px; }
-        .fixture-status { font-weight: 800; font-size: 12px; color: #38bdf8; }
+        .fixture-teams { font-weight: 700; font-size: 12px; color: #f8fafc; }
+        .fixture-meta { font-size: 10px; color: #94a3b8; margin-top: 2px; }
+        .fixture-status { font-weight: 800; font-size: 11px; color: #38bdf8; flex-shrink: 0; }
 
-        .table-wrapper { overflow-x: auto; }
+        .table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
         .standings-table {
-            width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;
+            width: 100%; border-collapse: collapse; font-size: 11px; text-align: left; white-space: nowrap;
         }
+        @media(min-width: 768px) { .standings-table { font-size: 13px; } }
         .standings-table th, .standings-table td {
-            padding: 10px 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .standings-table th { color: #38bdf8; font-weight: 800; font-size: 12px; }
+        .standings-table th { color: #38bdf8; font-weight: 800; font-size: 11px; }
         .standings-table tr.highlight-team {
             background: rgba(249, 115, 22, 0.18);
             border-left: 3px solid #f97316;
@@ -275,196 +250,141 @@
         }
 
         .roles {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 12px; margin: 20px 0;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px; margin: 15px 0;
         }
         .role-box {
-            background: rgba(15, 23, 42, 0.9); padding: 14px; border-radius: 12px;
+            background: rgba(15, 23, 42, 0.9); padding: 12px; border-radius: 10px;
             border-left: 4px solid #f97316; font-weight: 600; color: #f8fafc;
-            text-align: center; font-size: 13px; box-shadow: inset 0 0 10px rgba(249,115,22,0.1);
-            transition: 0.3s;
-        }
-        .role-box:hover {
-            transform: translateY(-3px); background: rgba(37, 51, 66, 0.8);
-            box-shadow: 0 5px 15px rgba(249,115,22,0.3);
+            text-align: center; font-size: 12px;
         }
 
-        .form-group { margin-bottom: 18px; }
-        label { display: block; margin-bottom: 7px; font-weight: 600; color: #e2e8f0; font-size: 13px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 6px; font-weight: 600; color: #e2e8f0; font-size: 12px; }
         @media(min-width: 768px) { label { font-size: 14px; } }
 
         input, select, textarea {
-            width: 100%; padding: 12px 14px; background: rgba(15, 23, 42, 0.95);
-            border: 1px solid #475569; border-radius: 10px; color: #fff; font-size: 14px; transition: 0.3s;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+            width: 100%; padding: 10px 12px; background: rgba(15, 23, 42, 0.95);
+            border: 1px solid #475569; border-radius: 8px; color: #fff; font-size: 13px;
         }
         input:focus, select:focus, textarea:focus {
-            outline: none; border-color: #f97316; box-shadow: 0 0 15px rgba(249, 115, 22, 0.5), inset 0 0 5px rgba(249, 115, 22, 0.3);
+            outline: none; border-color: #f97316; box-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
         }
         .checkbox-label {
-            display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: #cbd5e1; cursor: pointer;
+            display: flex; align-items: flex-start; gap: 8px; font-size: 11px; color: #cbd5e1; cursor: pointer;
         }
         @media(min-width: 768px) { .checkbox-label { font-size: 13px; } }
-        .checkbox-label input { width: 18px; height: 18px; margin-top: 2px; accent-color: #f97316; flex-shrink: 0; }
+        .checkbox-label input { width: 16px; height: 16px; margin-top: 2px; accent-color: #f97316; flex-shrink: 0; }
         
         .btn {
-            display: block; width: 100%; padding: 15px;
+            display: block; width: 100%; padding: 14px;
             background: linear-gradient(135deg, #f97316, #ea580c); color: white;
-            border: none; border-radius: 10px; font-size: 14px; font-weight: 800;
-            cursor: pointer; text-transform: uppercase; letter-spacing: 1.5px;
-            transition: 0.3s; text-align: center; box-shadow: 0 8px 25px rgba(249, 115, 22, 0.5);
+            border: none; border-radius: 8px; font-size: 13px; font-weight: 800;
+            cursor: pointer; text-transform: uppercase; letter-spacing: 1px;
+            text-align: center; box-shadow: 0 5px 20px rgba(249, 115, 22, 0.4);
         }
         @media(min-width: 768px) { .btn { font-size: 15px; padding: 16px; } }
-        .btn:hover { opacity: 0.95; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(249, 115, 22, 0.7); }
         
         .btn-whatsapp {
             background: linear-gradient(135deg, #25D366, #1EBE5D);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
         }
-        .btn-whatsapp:hover { box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6); }
 
-        .contact-box { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px; }
+        .contact-box { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
         .contact-item {
             background: rgba(15, 23, 42, 0.85); border: 1px solid #334155;
-            padding: 12px 18px; border-radius: 10px; font-weight: 600; color: #38bdf8;
-            text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 13px; transition: 0.3s;
-            box-shadow: inset 0 0 10px rgba(56,189,248,0.1);
+            padding: 10px 14px; border-radius: 8px; font-weight: 600; color: #38bdf8;
+            text-decoration: none; display: flex; align-items: center; gap: 6px; font-size: 12px;
         }
-        .contact-item:hover { border-color: #f97316; color: #f97316; transform: translateY(-3px); box-shadow: 0 5px 20px rgba(249,115,22,0.3); }
         
         .match-showcase {
             background: rgba(26, 36, 51, 0.6);
             border: 1px solid rgba(56, 189, 248, 0.3);
-            border-radius: 14px; padding: 25px 20px; text-align: center;
-            margin-bottom: 20px; position: relative; overflow: hidden;
+            border-radius: 12px; padding: 18px 12px; text-align: center;
+            margin-bottom: 15px; position: relative;
         }
 
         .teams-container {
             display: flex; align-items: center; justify-content: center;
-            gap: 25px; margin-bottom: 15px; perspective: 1000px;
+            gap: 15px; margin-bottom: 12px;
         }
 
         .team-logo-box {
-            width: 85px; height: 85px; display: flex; align-items: center; justify-content: center;
-            transform-style: preserve-3d; animation: logo3Dfloat 4s ease-in-out infinite;
+            width: 65px; height: 65px; display: flex; align-items: center; justify-content: center;
         }
-        .team-logo-box:nth-child(2) { animation-delay: 2s; }
         .team-logo-box img {
             width: 100%; height: 100%; object-fit: contain;
-            filter: drop-shadow(0 10px 20px rgba(249, 115, 22, 0.5)); transition: 0.5s;
-        }
-        .team-logo-box img:hover {
-            transform: scale(1.15) rotateY(25deg);
-            filter: drop-shadow(0 15px 30px rgba(56, 189, 248, 0.8));
-        }
-
-        @keyframes logo3Dfloat {
-            0% { transform: translateY(0px) rotateY(0deg) scale(1); }
-            50% { transform: translateY(-8px) rotateY(15deg) scale(1.05); }
-            100% { transform: translateY(0px) rotateY(0deg) scale(1); }
-        }
-
-        @keyframes pulse3D {
-            0% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 15px rgba(249,115,22,0.6)); }
-            50% { transform: scale(1.06) rotate(3deg); filter: drop-shadow(0 0 25px rgba(56,189,248,0.8)); }
-            100% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 15px rgba(249,115,22,0.6)); }
+            filter: drop-shadow(0 5px 15px rgba(249, 115, 22, 0.5));
         }
 
         .vs-text {
-            font-size: 20px; font-weight: 800;
+            font-size: 18px; font-weight: 800;
             background: linear-gradient(135deg, #38bdf8, #f97316);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: vsGlow 2s ease-in-out infinite alternate;
-        }
-        @keyframes vsGlow {
-            from { text-shadow: 0 0 5px rgba(56,189,248,0.5); }
-            to { text-shadow: 0 0 20px rgba(249, 115, 22, 0.9); }
         }
 
         .jersey-showcase-container {
-            width: 100%; max-width: 350px; margin: 0 auto 20px auto; perspective: 1000px;
+            width: 100%; max-width: 280px; margin: 0 auto 15px auto;
         }
         .jersey-card-3d {
-            width: 100%; height: 320px;
+            width: 100%; height: 250px;
             background: radial-gradient(circle, rgba(249, 115, 22, 0.2) 0%, rgba(15, 23, 42, 0.85) 80%);
-            border: 2px solid rgba(249, 115, 22, 0.6); border-radius: 20px;
+            border: 2px solid rgba(249, 115, 22, 0.6); border-radius: 16px;
             display: flex; align-items: center; justify-content: center;
-            position: relative; overflow: hidden; transform-style: preserve-3d;
-            animation: jerseyFloat 5s ease-in-out infinite;
-            box-shadow: 0 20px 45px rgba(0,0,0,0.7), inset 0 0 25px rgba(249, 115, 22, 0.35);
+            position: relative; overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.7);
         }
-        .jersey-card-3d img {
-            width: 92%; height: 92%; object-fit: contain;
-            filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.9)); transition: transform 0.5s ease;
-        }
-        .jersey-card-3d:hover img { transform: scale(1.12) rotateZ(-3deg) rotateY(10deg); }
-        @keyframes jerseyFloat {
-            0% { transform: translateY(0px) rotateX(5deg) rotateY(-5deg); }
-            50% { transform: translateY(-12px) rotateX(-5deg) rotateY(5deg); }
-            100% { transform: translateY(0px) rotateX(5deg) rotateY(-5deg); }
-        }
+        .jersey-card-3d img { width: 90%; height: 90%; object-fit: contain; }
         
         .ticket-showcase-container {
-            width: 100%; max-width: 340px; margin: 0 auto 20px auto; perspective: 1000px;
+            width: 100%; max-width: 280px; margin: 0 auto 15px auto;
         }
         .ticket-card-3d {
-            width: 100%; height: 175px; background: rgba(15, 23, 42, 0.9);
-            border: 2px solid rgba(56, 189, 248, 0.5); border-radius: 14px;
-            overflow: hidden; position: relative; transform-style: preserve-3d;
-            animation: ticketTilt 6s ease-in-out infinite alternate;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.7), 0 0 15px rgba(56, 189, 248, 0.2);
+            width: 100%; height: 150px; background: rgba(15, 23, 42, 0.9);
+            border: 2px solid rgba(56, 189, 248, 0.5); border-radius: 12px;
+            overflow: hidden; position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.7);
         }
-        .ticket-card-3d img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .ticket-card-3d:hover img { transform: scale(1.08); }
-        @keyframes ticketTilt {
-            0% { transform: perspective(800px) rotateX(10deg) rotateY(-10deg); }
-            100% { transform: perspective(800px) rotateX(-10deg) rotateY(10deg); }
-        }
+        .ticket-card-3d img { width: 100%; height: 100%; object-fit: cover; }
 
         .virtual-ticket-box {
             background: linear-gradient(135deg, #0f172a, #1e293b);
             border: 2px dashed #38bdf8;
-            border-radius: 20px;
-            padding: 25px;
+            border-radius: 16px;
+            padding: 20px;
             text-align: left;
             position: relative;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.8), 0 0 25px rgba(56,189,248,0.3);
-            margin: 20px 0;
-            transform-style: preserve-3d;
-            animation: virtualTicketReveal 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-
-        @keyframes virtualTicketReveal {
-            0% { transform: scale(0.8) rotateX(30deg); opacity: 0; }
-            100% { transform: scale(1) rotateX(0deg); opacity: 1; }
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            margin: 15px 0;
         }
 
         .vt-header {
             display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 12px; margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 10px; margin-bottom: 12px;
+            flex-wrap: wrap; gap: 8px;
         }
-        .vt-title { font-size: 14px; font-weight: 800; color: #f97316; letter-spacing: 1px; }
+        .vt-title { font-size: 13px; font-weight: 800; color: #f97316; letter-spacing: 1px; }
         .vt-code-badge {
             background: rgba(56, 189, 248, 0.15);
             border: 1px solid #38bdf8; color: #38bdf8;
-            padding: 6px 12px; border-radius: 8px; font-weight: 800; font-size: 14px;
-            letter-spacing: 1.5px; text-shadow: 0 0 10px rgba(56,189,248,0.5);
+            padding: 4px 10px; border-radius: 6px; font-weight: 800; font-size: 12px;
+            letter-spacing: 1px;
         }
         .vt-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13px; margin-bottom: 15px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 12px; margin-bottom: 12px;
         }
-        .vt-item label { color: #94a3b8; font-size: 11px; margin-bottom: 2px; text-transform: uppercase; }
-        .vt-item span { color: #f8fafc; font-weight: 600; font-size: 13px; }
+        .vt-item label { color: #94a3b8; font-size: 10px; margin-bottom: 2px; text-transform: uppercase; }
+        .vt-item span { color: #f8fafc; font-weight: 600; font-size: 12px; word-break: break-all; }
 
-        .match-info-text { color: #94a3b8; font-size: 13px; margin: 4px 0; }
+        .match-info-text { color: #94a3b8; font-size: 12px; margin: 3px 0; }
         .page-view { display: none; }
         .page-view.active { display: block; }
         .back-link {
-            display: inline-block; color: #38bdf8; font-size: 13px; font-weight: 600;
-            text-decoration: none; margin-bottom: 15px; cursor: pointer;
+            display: inline-block; color: #38bdf8; font-size: 12px; font-weight: 600;
+            text-decoration: none; margin-bottom: 12px; cursor: pointer;
         }
         .back-link:hover { color: #f97316; text-decoration: underline; }
-        footer { text-align: center; margin-top: 25px; color: #94a3b8; font-size: 12px; text-shadow: 0 2px 5px rgba(0,0,0,0.8); }
+        footer { text-align: center; margin-top: 20px; color: #94a3b8; font-size: 11px; }
     </style>
 </head>
 <body>
@@ -493,20 +413,19 @@
                 <div class="light-ray"></div>
                 <div class="glint-effect"></div>
                 <canvas id="dustCanvas"></canvas>
-                <div class="vignette"></div>
             </div>
         </div>
 
         <div id="page-match" class="page-view active">
             
             <div class="card" style="border: 2px solid rgba(56, 189, 248, 0.4);">
-                <div class="slk-live-badge">🔴 Super League Kerala • Analyzed Standings</div>
-                <div class="section-title">⚽ Thrissur Magic FC Fixtures & Current Standings</div>
-                <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 15px;">
+                <div class="slk-live-badge">🔴 Super League Kerala • Standings</div>
+                <div class="section-title">⚽ Thrissur Magic FC Fixtures & Standings</div>
+                <p style="font-size: 12px; color: #cbd5e1; margin-bottom: 12px;">
                     Track live match updates, analysis-based points table, and upcoming matches curated exclusively for Blue Gadies.
                 </p>
 
-                <h3 style="font-size: 14px; color: #38bdf8; margin-bottom: 10px;">📅 Thrissur Magic Matches</h3>
+                <h3 style="font-size: 13px; color: #38bdf8; margin-bottom: 8px;">📅 Thrissur Magic Matches</h3>
                 <div class="matches-grid">
                     <div class="match-fixture-card">
                         <div>
@@ -518,13 +437,13 @@
                     <div class="match-fixture-card">
                         <div>
                             <div class="fixture-teams">Thrissur Magic FC vs Forca Kochi FC</div>
-                            <div class="fixture-meta">Oct 1, 2026 • Thrissur Corporation Stadium</div>
+                            <div class="fixture-meta">Oct 1, 2026 • Thrissur Stadium</div>
                         </div>
                         <div class="fixture-status">7:30 PM</div>
                     </div>
                 </div>
 
-                <h3 style="font-size: 14px; color: #f97316; margin: 20px 0 10px 0;">🏆 Super League Kerala Points Table (Analyzed)</h3>
+                <h3 style="font-size: 13px; color: #f97316; margin: 15px 0 8px 0;">🏆 Super League Kerala Points Table</h3>
                 <div class="table-wrapper">
                     <table class="standings-table">
                         <thead>
@@ -621,7 +540,7 @@
 
             <div class="card" style="border: 2px solid rgba(249, 115, 22, 0.4);">
                 <div class="section-title">🎫 Match Ticket + Jersey Combo Offer</div>
-                <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px;">
+                <p style="font-size: 12px; color: #cbd5e1; margin-bottom: 15px;">
                     Grab your official match day combo! Book your ticket and club jersey together securely under Blue Gadies name.
                 </p>
 
@@ -635,7 +554,7 @@
                             <img src="image_8.png" alt="Forca Kochi FC">
                         </div>
                     </div>
-                    <div style="font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 8px;">Thrissur Magic FC vs Forca Kochi FC</div>
+                    <div style="font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 6px;">Thrissur Magic FC vs Forca Kochi FC</div>
                     <div class="match-info-text">📅 <strong>Date:</strong> October 1, 2026</div>
                     <div class="match-info-text">⏰ <strong>Time:</strong> 07:30 PM</div>
                     <div class="match-info-text">🏟️ <strong>Venue:</strong> Thrissur Corporation Stadium</div>
@@ -645,14 +564,14 @@
                     <div class="jersey-card-3d">
                         <img src="image_7.png" alt="Official Jersey">
                     </div>
-                    <div style="text-align: center; color: #38bdf8; font-size: 12px; font-weight: 700; letter-spacing: 1px; margin-top: 8px;">⚡ OFFICIAL MATCH JERSEY PREVIEW ⚡</div>
+                    <div style="text-align: center; color: #38bdf8; font-size: 11px; font-weight: 700; letter-spacing: 1px; margin-top: 6px;">⚡ OFFICIAL JERSEY PREVIEW ⚡</div>
                 </div>
 
                 <div class="ticket-showcase-container">
                     <div class="ticket-card-3d">
                         <img src="image_9.png" alt="Match Ticket">
                     </div>
-                    <div style="text-align: center; color: #f97316; font-size: 12px; font-weight: 700; letter-spacing: 1px; margin-top: 6px;">🎟️ MATCH TICKET PREVIEW 🎟️</div>
+                    <div style="text-align: center; color: #f97316; font-size: 11px; font-weight: 700; letter-spacing: 1px; margin-top: 5px;">🎟️ MATCH TICKET PREVIEW 🎟️</div>
                 </div>
 
                 <button type="button" class="btn" onclick="switchPage('form')">Combo Book 🎟️</button>
@@ -667,8 +586,8 @@
 
             <div class="card">
                 <div class="section-title">🔥 Creator's Squad Recruitment</div>
-                <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px;">
-                    Note: This is an unpaid, passion-driven volunteer role. We are looking for dedicated individuals ready to stay active all season long.
+                <p style="font-size: 12px; color: #cbd5e1; margin-bottom: 15px;">
+                    Note: Unpaid, passion-driven volunteer role for active contributors.
                 </p>
 
                 <div class="roles">
@@ -677,7 +596,7 @@
                     <div class="role-box">🎨 Graphics Designers</div>
                 </div>
 
-                <form id="mediaForm" onsubmit="handleWhatsAppSubmit(event)" style="margin-top: 25px;">
+                <form id="mediaForm" onsubmit="handleWhatsAppSubmit(event)" style="margin-top: 20px;">
                     <div class="form-group">
                         <label>Full Name:</label>
                         <input type="text" id="fullName" placeholder="Enter your full name" required>
@@ -714,7 +633,7 @@
                     <div class="form-group">
                         <label class="checkbox-label">
                             <input type="checkbox" id="commitment" required>
-                            <span>I understand that this is an unpaid, passion-driven volunteer role supporting Blue Gadies, and I commit to staying active throughout the entire season.</span>
+                            <span>I understand that this is an unpaid, passion-driven volunteer role supporting Blue Gadies.</span>
                         </label>
                     </div>
                     <button type="submit" class="btn">Submit Application to WhatsApp</button>
@@ -727,7 +646,7 @@
             <div class="card" style="border: 2px solid rgba(249, 115, 22, 0.4);">
                 <a class="back-link" onclick="switchPage('match')">&larr; Back to Match Details</a>
                 <div class="section-title">📝 Ticket + Jersey Combo Booking Details</div>
-                <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px;">
+                <p style="font-size: 12px; color: #cbd5e1; margin-bottom: 15px;">
                     Please fill out your details correctly to secure your combo booking.
                 </p>
 
@@ -751,7 +670,7 @@
                     <div class="form-group">
                         <label>How many tickets:</label>
                         <select id="comboTickets" required>
-                            <option value="">-- Select number of tickets (1-10) --</option>
+                            <option value="">-- Select count (1-10) --</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -770,7 +689,7 @@
                     </div>
                     <div class="form-group">
                         <label>Transaction ID / UPI Reference Number:</label>
-                        <input type="text" id="comboTxId" placeholder="Enter 12-digit UPI Transaction Reference Number" required>
+                        <input type="text" id="comboTxId" placeholder="Enter 12-digit UPI Reference Number" required>
                     </div>
                     <button type="submit" class="btn btn-whatsapp">Generate Virtual Ticket 🎟️</button>
                 </form>
@@ -780,7 +699,7 @@
         <div id="page-success" class="page-view">
             <div class="card" style="border: 2px solid rgba(56, 189, 248, 0.6); text-align: center;">
                 <div class="section-title" style="justify-content: center;">🎉 Booking Successful!</div>
-                <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 10px;">
+                <p style="font-size: 12px; color: #cbd5e1; margin-bottom: 10px;">
                     Your virtual ticket has been generated successfully with your unique reference code.
                 </p>
 
@@ -807,22 +726,22 @@
                             <span id="displayTicketTx">-</span>
                         </div>
                     </div>
-                    <div style="font-size: 11px; color: #94a3b8; text-align: center; border-top: 1px dashed rgba(255,255,255,0.15); padding-top: 10px;">
-                        Keep this ticket code safe to verify your entry and records.
+                    <div style="font-size: 10px; color: #94a3b8; text-align: center; border-top: 1px dashed rgba(255,255,255,0.15); padding-top: 8px;">
+                        Keep this ticket code safe to verify your entry.
                     </div>
                 </div>
 
-                <button type="button" class="btn btn-whatsapp" id="whatsappSendBtn" onclick="openWhatsAppWithTicket()" style="margin-bottom: 15px;">Send Confirmation to WhatsApp 📲</button>
+                <button type="button" class="btn btn-whatsapp" id="whatsappSendBtn" onclick="openWhatsAppWithTicket()" style="margin-bottom: 12px;">Send Confirmation to WhatsApp 📲</button>
                 <a class="back-link" onclick="switchPage('match')">&larr; Back to Home Portal</a>
             </div>
         </div>
 
         <div class="card" style="text-align: center;">
             <div class="section-title" style="justify-content: center;">📞 Connect With Us</div>
-            <p style="color: #cbd5e1; font-size: 13px; margin-bottom: 15px;">Have queries? Reach out to us directly through our official handles.</p>
+            <p style="color: #cbd5e1; font-size: 12px; margin-bottom: 12px;">Have queries? Reach out to us directly.</p>
             <div class="contact-box">
-                <a href="https://wa.me/919947542829" target="_blank" class="contact-item">💬 WhatsApp: +91 99475 42829</a>
-                <a href="https://instagram.com/bluegadies" target="_blank" class="contact-item">📸 Instagram: @bluegadies</a>
+                <a href="https://wa.me/919947542829" target="_blank" class="contact-item">💬 WhatsApp</a>
+                <a href="https://instagram.com/bluegadies" target="_blank" class="contact-item">📸 Instagram</a>
             </div>
         </div>
 
@@ -839,13 +758,10 @@
             document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
             if(pageId === 'match') {
                 document.getElementById('page-match').classList.add('active');
-                window.scrollTo({top: 0, behavior: 'smooth'});
             } else if(pageId === 'form') {
                 document.getElementById('page-form').classList.add('active');
-                window.scrollTo({top: 0, behavior: 'smooth'});
             } else if(pageId === 'success') {
                 document.getElementById('page-success').classList.add('active');
-                window.scrollTo({top: 0, behavior: 'smooth'});
             }
         }
 
@@ -939,18 +855,7 @@
 
         const coverContainer = document.getElementById('coverContainer');
         const coverCard = document.getElementById('coverCard');
-        coverContainer.addEventListener('mousemove', (e) => {
-            const rect = coverContainer.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            coverCard.style.transform = `rotateX(${(-y / rect.height) * 12}deg) rotateY(${(x / rect.width) * 12}deg) scale(1.02)`;
-        });
-        coverContainer.addEventListener('mouseleave', () => {
-            coverCard.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
-            coverCard.style.transition = 'transform 0.5s ease-out';
-        });
-        coverContainer.addEventListener('mouseenter', () => { coverCard.style.transition = 'none'; });
-
+        
         const canvas = document.getElementById('dustCanvas');
         const ctx = canvas.getContext('2d');
         function resizeCanvas() {
@@ -961,14 +866,14 @@
         window.addEventListener('resize', resizeCanvas);
 
         const particles = [];
-        for (let i = 0; i < 40; i++) {
-            particles.push({
+        for (let i = 0; i < 30; i++) {
+            particles.path.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
                 radius: Math.random() * 2 + 0.5,
                 color: Math.random() > 0.5 ? 'rgba(255, 215, 0, 0.7)' : 'rgba(255, 255, 255, 0.5)',
-                speedX: (Math.random() - 0.5) * 0.4,
-                speedY: -Math.random() * 0.6 - 0.2
+                speedX: (Math.random() - 0.5) * 0.3,
+                speedY: -Math.random() * 0.5 - 0.2
             });
         }
         function animateParticles() {
