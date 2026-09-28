@@ -40,7 +40,7 @@
             100% { transform: translate(40px, 40px) scale(1.1); }
         }
 
-        /* DJI Style Cinematic 3D Intro Animation Screen */
+        /* Cinematic 3.5s Intro Animation Screen */
         #intro-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -49,34 +49,75 @@
             justify-content: center; align-items: center;
             z-index: 9999;
             overflow: hidden;
-            animation: hideOverlay 0.8s cubic-bezier(0.77, 0, 0.175, 1) 3s forwards;
+            animation: hideOverlay 0.8s cubic-bezier(0.77, 0, 0.175, 1) 3.5s forwards;
         }
 
         .intro-spotlight {
             position: absolute;
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(14, 165, 233, 0.25) 0%, transparent 70%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.3) 0%, rgba(3, 7, 18, 0) 70%);
             border-radius: 50%;
-            animation: spotlightPulse 3s ease-in-out infinite alternate;
+            animation: spotlightPulse 3.5s ease-in-out infinite alternate;
             z-index: -1;
         }
 
         @keyframes spotlightPulse {
-            0% { transform: scale(0.8); opacity: 0.5; }
-            100% { transform: scale(1.2); opacity: 1; }
+            0% { transform: scale(0.8); opacity: 0.4; }
+            100% { transform: scale(1.25); opacity: 0.9; }
         }
 
+        /* Perfectly Rounded Logo Container with No Box Shade */
         .anim-logo-wrap {
-            width: 130px; height: 130px;
+            width: 150px; height: 150px;
             display: flex; justify-content: center; align-items: center;
-            animation: djiLogoAnim 2.5s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+            position: relative;
+            border-radius: 50%;
+            overflow: hidden;
+            background: transparent;
+            animation: logoMetallicRotate 3s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
             transform-style: preserve-3d;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .anim-logo-wrap img {
             width: 100%; height: 100%; object-fit: contain;
-            filter: drop-shadow(0 0 25px rgba(14, 165, 233, 0.8));
+            background: transparent;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 30px rgba(14, 165, 233, 0.8));
+            transform: translateZ(40px);
+        }
+
+        .metal-glaze {
+            position: absolute;
+            top: -150%; left: -150%;
+            width: 400%; height: 400%;
+            background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.0) 45%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.0) 55%, transparent 60%);
+            transform: rotate(25deg);
+            pointer-events: none;
+            border-radius: 50%;
+            animation: metalGlazeAnim 2s ease-in-out infinite;
+        }
+
+        @keyframes metalGlazeAnim {
+            0% { transform: translateY(-100%) translateX(-100%) rotate(25deg); }
+            100% { transform: translateY(100%) translateX(100%) rotate(25deg); }
+        }
+
+        @keyframes logoMetallicRotate {
+            0% { 
+                transform: scale(0.1) translateZ(-400px) rotateX(75deg) rotateY(-60deg); 
+                opacity: 0; 
+                filter: blur(15px); 
+            }
+            60% { 
+                transform: scale(1.08) translateZ(50px) rotateX(-5deg) rotateY(15deg); 
+                opacity: 1; 
+                filter: blur(0px); 
+            }
+            100% { 
+                transform: scale(1) translateZ(0px) rotateX(0deg) rotateY(0deg); 
+                opacity: 1; 
+                filter: blur(0px); 
+            }
         }
 
         .anim-title {
@@ -84,11 +125,11 @@
             font-size: 22px; font-weight: 950; letter-spacing: 3px;
             color: #ffffff;
             opacity: 0;
-            animation: djiTextAnim 1.2s cubic-bezier(0.1, 0.9, 0.2, 1) 0.8s forwards;
+            animation: textFadeSlide 1.2s cubic-bezier(0.1, 0.9, 0.2, 1) 1s forwards;
             text-align: center;
             text-transform: uppercase;
             padding: 0 10px;
-            text-shadow: 0 0 15px rgba(14, 165, 233, 0.6);
+            text-shadow: 0 0 20px rgba(14, 165, 233, 0.7);
         }
 
         .anim-subtitle {
@@ -96,18 +137,12 @@
             color: #0ea5e9;
             opacity: 0;
             margin-top: 8px;
-            animation: djiTextAnim 1.2s cubic-bezier(0.1, 0.9, 0.2, 1) 1.2s forwards;
+            animation: textFadeSlide 1.2s cubic-bezier(0.1, 0.9, 0.2, 1) 1.5s forwards;
             text-align: center;
             text-transform: uppercase;
         }
 
-        @keyframes djiLogoAnim {
-            0% { transform: scale(0.2) translateZ(-200px) rotateX(45deg); opacity: 0; filter: blur(10px); }
-            50% { transform: scale(1.08) translateZ(20px) rotateX(-5deg); opacity: 1; filter: blur(0px); }
-            100% { transform: scale(1) translateZ(0px) rotateX(0deg); opacity: 1; filter: blur(0px); }
-        }
-
-        @keyframes djiTextAnim {
+        @keyframes textFadeSlide {
             0% { opacity: 0; transform: translateY(25px) scale(0.9); filter: blur(5px); }
             100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0px); }
         }
@@ -159,10 +194,12 @@
         .header-logo-badge {
             width: 90px; height: 90px;
             margin: 0 auto 12px auto; display: flex; justify-content: center; align-items: center;
+            background: transparent;
             animation: badgePulse 4s ease-in-out infinite;
         }
         .header-logo-badge img {
             width: 100%; height: 100%; object-fit: contain;
+            background: transparent;
             filter: drop-shadow(0 0 15px rgba(14, 165, 233, 0.5));
         }
 
@@ -444,11 +481,12 @@
 </head>
 <body>
 
-    <!-- DJI Style 3D Logo & Title Animation Intro Screen -->
+    <!-- Cinematic 3.5s Logo Animation Screen (Clean Rounded Logo, No White Box Shade) -->
     <div id="intro-overlay">
         <div class="intro-spotlight"></div>
         <div class="anim-logo-wrap">
             <img src="bluegadies logo.png" alt="Blue Gadies Logo">
+            <div class="metal-glaze"></div>
         </div>
         <div class="anim-title">BLUE GADIES FANS PORTAL</div>
         <div class="anim-subtitle">Thrissur Magic FC Official Supporters Club</div>
@@ -774,7 +812,7 @@
             const place = document.getElementById("place").value;
             const whatsapp = document.getElementById("whatsapp").value;
             const instaId = document.getElementById("instaId").value;
-            const role = document.getElementById("role").value;
+            const logo = document.getElementById("role").value;
             const portfolio = document.getElementById("portfolio").value;
 
             const formData = {
@@ -785,7 +823,7 @@
                 tickets: "N/A",
                 upi: "N/A",
                 screenshot: portfolio,
-                type: "Media Team Application: " + role
+                type: "Media Team Application: " + logo
             };
 
             fetch(WEB_APP_URL, {
@@ -802,7 +840,7 @@
                             "Place: " + place + "\n" +
                             "Contact: " + whatsapp + "\n" +
                             "Instagram: " + instaId + "\n" +
-                            "Role: " + role + "\n" +
+                            "Role: " + logo + "\n" +
                             "Portfolio: " + portfolio + "\n\n" +
                             "_Submitted via Official Portal_";
 
@@ -819,7 +857,7 @@
             
             const sizeSelects = document.querySelectorAll(".jersey-size-select");
             let sizesArr = [];
-            sizeSelects.forEach((sel, idx) => {
+            sizeSelects.logoEach((sel, idx) => {
                 sizesArr.push(`T#${idx+1}: ${sel.value}`);
             });
             const sizesSummary = sizesArr.join(", ");
