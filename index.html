@@ -15,6 +15,10 @@
         }
         body {
             background-color: #030712;
+            background-image: linear-gradient(to bottom, rgba(3, 7, 18, 0.7), rgba(3, 7, 18, 0.9)), url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: #ffffff;
             line-height: 1.6;
             overflow-x: hidden;
@@ -440,6 +444,7 @@
 </head>
 <body>
 
+    <!-- DJI Style 3D Logo & Title Animation Intro Screen -->
     <div id="intro-overlay">
         <div class="intro-spotlight"></div>
         <div class="anim-logo-wrap">
@@ -451,6 +456,7 @@
 
     <div class="container">
         
+        <!-- Header Card -->
         <div class="card header-card">
             <div class="header-logo-badge">
                 <img src="bluegadies logo.png" alt="Blue Gadies Logo">
@@ -462,6 +468,7 @@
 
         <div id="page-match" class="page-view active">
             
+            <!-- Cover Image Display Card -->
             <div class="cover-image-card">
                 <img src="image_3.png" alt="Thrissur Magic FC Cover Preview" onerror="this.src='image_7.png'">
             </div>
@@ -492,6 +499,7 @@
                 </div>
             </div>
 
+            <!-- Combined Jersey & Ticket Showcase Card -->
             <div class="card" style="border: 2px solid rgba(14, 165, 233, 0.5);">
                 <div class="section-title">🎫 Match Ticket + Jersey Combo Offer</div>
                 <p style="font-size: 11px; color: #94a3b8; margin-bottom: 14px; font-weight: 600;">
@@ -514,6 +522,7 @@
                     <div class="match-info-text">🏟️ <strong>Venue:</strong> Thrissur Corporation Stadium</div>
                 </div>
 
+                <!-- Combined Combo Container -->
                 <div class="combo-showcase-box">
                     <div class="showcase-3d-wrapper">
                         <div class="jersey-card-3d">
@@ -640,6 +649,7 @@
                         </select>
                     </div>
 
+                    <!-- Dynamic Jersey Sizes Container -->
                     <div class="form-group" id="jerseySizesWrapper" style="display: none;">
                         <label>Select Jersey Size for Each Ticket:</label>
                         <div class="jersey-sizes-container" id="jerseySizesList"></div>
