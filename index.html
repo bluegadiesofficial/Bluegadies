@@ -66,7 +66,7 @@
             100% { transform: scale(1.25); opacity: 0.9; }
         }
 
-        /* Perfectly Rounded Logo Container with No Box Shade */
+        /* Perfectly Rounded Logo Container */
         .anim-logo-wrap {
             width: 150px; height: 150px;
             display: flex; justify-content: center; align-items: center;
@@ -439,34 +439,84 @@
             font-size: 16px; font-weight: 900; color: #0ea5e9; font-family: 'Orbitron', sans-serif;
         }
 
+        /* 🍊 Vibrant Orange & Electric Blue Graphic Virtual Ticket Design */
         .virtual-ticket-box {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            border: 2px dashed #0ea5e9;
-            border-radius: 14px;
-            padding: 18px;
+            background: linear-gradient(135deg, #091e3a 0%, #152c52 50%, #1a1005 100%);
+            border: 2px solid #ff7700;
+            border-radius: 18px;
+            padding: 22px;
             text-align: left;
             position: relative;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.7);
-            margin: 14px 0;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 0 0 35px rgba(255, 119, 0, 0.4), inset 0 0 20px rgba(14, 165, 233, 0.3);
+            margin: 16px 0;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            animation: ticketPopAnim 1.2s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+        }
+
+        .virtual-ticket-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 6px;
+            background: linear-gradient(90deg, #ff7700, #ffaa00, #0ea5e9, #ffffff);
+        }
+
+        @keyframes ticketPopAnim {
+            0% {
+                transform: scale(0.4) translateY(60px) rotateX(50deg);
+                opacity: 0;
+                filter: blur(12px);
+            }
+            70% {
+                transform: scale(1.04) translateY(-10px) rotateX(-5deg);
+                opacity: 1;
+                filter: blur(0px);
+            }
+            100% {
+                transform: scale(1) translateY(0px) rotateX(0deg);
+                opacity: 1;
+                filter: blur(0px);
+            }
+        }
+
+        /* Metallic Glaze Sweep Effect over the Orange/Blue Ticket */
+        .ticket-metal-glaze {
+            position: absolute;
+            top: -150%; left: -150%;
+            width: 400%; height: 400%;
+            background: linear-gradient(135deg, transparent 40%, rgba(255, 165, 0, 0.0) 44%, rgba(255, 255, 255, 0.35) 50%, rgba(14, 165, 233, 0.0) 56%, transparent 60%);
+            transform: rotate(25deg);
+            pointer-events: none;
+            animation: ticketGlazeAnim 2.8s ease-in-out infinite;
+        }
+
+        @keyframes ticketGlazeAnim {
+            0% { transform: translateY(-100%) translateX(-100%) rotate(25deg); }
+            100% { transform: translateY(100%) translateX(100%) rotate(25deg); }
         }
 
         .vt-header {
             display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid rgba(14, 165, 233, 0.2); padding-bottom: 8px; margin-bottom: 12px;
+            border-bottom: 1px dashed rgba(255, 119, 0, 0.4); padding-bottom: 10px; margin-bottom: 14px;
             flex-wrap: wrap; gap: 6px;
         }
-        .vt-title { font-size: 12px; font-weight: 900; color: #0ea5e9; letter-spacing: 1px; font-family: 'Orbitron', sans-serif; }
+        .vt-title { 
+            font-size: 13px; font-weight: 900; color: #ff9933; 
+            letter-spacing: 1.5px; font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 10px rgba(255, 119, 0, 0.6);
+        }
         .vt-code-badge {
-            background: rgba(14, 165, 233, 0.2);
-            border: 1px solid #0ea5e9; color: #ffffff;
-            padding: 3px 8px; border-radius: 5px; font-weight: 900; font-size: 11px;
-            letter-spacing: 1px;
+            background: linear-gradient(135deg, #ff7700, #ff5500);
+            border: 1px solid #ffaa00; color: #ffffff;
+            padding: 4px 10px; border-radius: 6px; font-weight: 900; font-size: 11px;
+            letter-spacing: 1.5px;
+            box-shadow: 0 0 15px rgba(255, 119, 0, 0.5);
         }
         .vt-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 11px; margin-bottom: 10px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 11px; margin-bottom: 12px;
         }
-        .vt-item label { color: #94a3b8; font-size: 9px; margin-bottom: 2px; text-transform: uppercase; font-weight: 800; }
-        .vt-item span { color: #ffffff; font-weight: 700; font-size: 11px; word-break: break-all; }
+        .vt-item label { color: #0ea5e9; font-size: 9px; margin-bottom: 2px; text-transform: uppercase; font-weight: 900; letter-spacing: 0.5px; }
+        .vt-item span { color: #ffffff; font-weight: 800; font-size: 12px; word-break: break-all; }
 
         .match-info-text { color: #94a3b8; font-size: 11px; margin: 3px 0; font-weight: 600; }
         .page-view { display: none; }
@@ -481,7 +531,7 @@
 </head>
 <body>
 
-    <!-- Cinematic 3.5s Logo Animation Screen (Clean Rounded Logo, No White Box Shade) -->
+    <!-- Cinematic 3.5s Logo Animation Screen -->
     <div id="intro-overlay">
         <div class="intro-spotlight"></div>
         <div class="anim-logo-wrap">
@@ -707,13 +757,15 @@
         </div>
 
         <div id="page-success" class="page-view">
-            <div class="card" style="border: 2px solid rgba(14, 165, 233, 0.5); text-align: center;">
-                <div class="section-title" style="justify-content: center;">🎉 Booking Successful!</div>
+            <div class="card" style="border: 2px solid rgba(255, 119, 0, 0.5); text-align: center;">
+                <div class="section-title" style="justify-content: center; color: #ff9933;">🎉 Booking Successful!</div>
                 <p style="font-size: 11px; color: #94a3b8; margin-bottom: 10px; font-weight: 600;">
                     Your virtual ticket has been generated successfully with your unique reference code.
                 </p>
 
+                <!-- Orange & Blue Full Graphics Virtual Ticket Design -->
                 <div class="virtual-ticket-box">
+                    <div class="ticket-metal-glaze"></div>
                     <div class="vt-header">
                         <div class="vt-title">⚡ BLUE GADIES PASS</div>
                         <div class="vt-code-badge" id="displayTicketCode">BG-2026-XXXX</div>
@@ -736,8 +788,8 @@
                             <span id="displayTicketTx">-</span>
                         </div>
                     </div>
-                    <div style="font-size: 9px; color: #0ea5e9; text-align: center; border-top: 1px dashed rgba(14, 165, 233, 0.3); padding-top: 6px; font-weight: 800;">
-                        Keep this ticket code safe to verify your entry.
+                    <div style="font-size: 9px; color: #ffaa33; text-align: center; border-top: 1px dashed rgba(255, 119, 0, 0.4); padding-top: 6px; font-weight: 900; letter-spacing: 0.5px;">
+                        🔥 OFFICIAL MATCH PASS • KEEP SAFE FOR ENTRY 🔥
                     </div>
                 </div>
 
@@ -799,6 +851,7 @@
                         <option value="L">L</option>
                         <option value="XL">XL</option>
                         <option value="XXL">XXL</option>
+                        <option value="XXXL">XXXL</option>
                     </select>
                 `;
                 list.appendChild(row);
@@ -812,7 +865,7 @@
             const place = document.getElementById("place").value;
             const whatsapp = document.getElementById("whatsapp").value;
             const instaId = document.getElementById("instaId").value;
-            const logo = document.getElementById("role").value;
+            const role = document.getElementById("role").value;
             const portfolio = document.getElementById("portfolio").value;
 
             const formData = {
@@ -823,7 +876,7 @@
                 tickets: "N/A",
                 upi: "N/A",
                 screenshot: portfolio,
-                type: "Media Team Application: " + logo
+                type: "Media Team Application: " + role
             };
 
             fetch(WEB_APP_URL, {
@@ -840,7 +893,7 @@
                             "Place: " + place + "\n" +
                             "Contact: " + whatsapp + "\n" +
                             "Instagram: " + instaId + "\n" +
-                            "Role: " + logo + "\n" +
+                            "Role: " + role + "\n" +
                             "Portfolio: " + portfolio + "\n\n" +
                             "_Submitted via Official Portal_";
 
@@ -857,7 +910,7 @@
             
             const sizeSelects = document.querySelectorAll(".jersey-size-select");
             let sizesArr = [];
-            sizeSelects.logoEach((sel, idx) => {
+            sizeSelects.forEach((sel, idx) => {
                 sizesArr.push(`T#${idx+1}: ${sel.value}`);
             });
             const sizesSummary = sizesArr.join(", ");
