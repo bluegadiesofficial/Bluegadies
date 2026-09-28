@@ -319,6 +319,28 @@
         input:focus, select:focus, textarea:focus {
             outline: none; border-color: #0ea5e9; box-shadow: 0 0 12px rgba(14, 165, 233, 0.4);
         }
+        
+        .jersey-sizes-container {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px dashed rgba(14, 165, 233, 0.4);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 14px;
+        }
+
+        .jersey-size-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #38bdf8;
+        }
+        .jersey-size-row:last-child { margin-bottom: 0; }
+        .jersey-size-row select { width: 110px; padding: 6px; font-size: 11px; }
+
         .checkbox-label {
             display: flex; align-items: flex-start; gap: 7px; font-size: 10px; color: #94a3b8; cursor: pointer; font-weight: 600;
         }
@@ -603,7 +625,7 @@
                     </div>
                     <div class="form-group">
                         <label>How many tickets:</label>
-                        <select id="comboTickets" required>
+                        <select id="comboTickets" onchange="renderJerseySizeSelectors()" required>
                             <option value="">-- Select count (1-10) --</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -617,6 +639,12 @@
                             <option value="10">10</option>
                         </select>
                     </div>
+
+                    <div class="form-group" id="jerseySizesWrapper" style="display: none;">
+                        <label>Select Jersey Size for Each Ticket:</label>
+                        <div class="jersey-sizes-container" id="jerseySizesList"></div>
+                    </div>
+
                     <div class="form-group">
                         <label>UPI ID Number:</label>
                         <input type="text" id="comboUpi" placeholder="e.g., username@oksbi" required>
@@ -652,7 +680,7 @@
                             <span>Thrissur vs Forca Kochi</span>
                         </div>
                         <div class="vt-item">
-                            <label>Tickets Count</label>
+                            <label>Tickets & Sizes</label>
                             <span id="displayTicketCount">-</span>
                         </div>
                         <div class="vt-item">
@@ -698,6 +726,35 @@
                 document.getElementById('page-success').classList.add('active');
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderJerseySizeSelectors() {
+            const count = parseInt(document.getElementById("comboTickets").value);
+            const wrapper = document.getElementById("jerseySizesWrapper");
+            const list = document.getElementById("jerseySizesList");
+            
+            list.innerHTML = "";
+            if (!count || count < 1) {
+                wrapper.style.display = "none";
+                return;
+            }
+
+            wrapper.style.display = "block";
+            for (let i = 1; i <= count; i++) {
+                const row = document.createElement("div");
+                row.className = "jersey-size-row";
+                row.innerHTML = `
+                    <span>Ticket #${i} Jersey Size:</span>
+                    <select class="jersey-size-select" required>
+                        <option value="">Select Size</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                `;
+                list.appendChild(row);
+            }
         }
 
         function handleWhatsAppSubmit(event) {
@@ -748,19 +805,29 @@
             const place = document.getElementById("comboPlace").value;
             const phone = document.getElementById("comboPhone").value;
             const email = document.getElementById("comboEmail").value;
-            const tickets = document.getElementById("comboTickets").value;
+            const ticketsCount = document.getElementById("comboTickets").value;
+            
+            const sizeSelects = document.querySelectorAll(".jersey-size-select");
+            let sizesArr = [];
+            sizeSelects.forEach((sel, idx) => {
+                sizesArr.push(`T#${idx+1}: ${sel.value}`);
+            });
+            const sizesSummary = sizesArr.join(", ");
+
             const upi = document.getElementById("comboUpi").value;
             const txId = document.getElementById("comboTxId").value;
             const uniqueTicketCode = "BG-2026-" + Math.floor(1000 + Math.random() * 9000);
 
-            currentBookingData = { name, place, phone, email, tickets, upi, txId, ticketCode: uniqueTicketCode };
+            currentBookingData = { name, place, phone, email, ticketsCount, sizesSummary, upi, txId, ticketCode: uniqueTicketCode };
 
             fetch(WEB_APP_URL, {
                 method: "POST",
                 mode: "no-cors",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    name, place, phone, email, tickets, upi,
+                    name, place, phone, email,
+                    tickets: ticketsCount + " Tickets (" + sizesSummary + ")",
+                    upi,
                     screenshot: "Code: " + uniqueTicketCode + " | TxID: " + txId,
                     type: "Ticket + Jersey Combo"
                 })
@@ -768,7 +835,7 @@
 
             document.getElementById("displayTicketCode").innerText = uniqueTicketCode;
             document.getElementById("displayTicketName").innerText = name;
-            document.getElementById("displayTicketCount").innerText = tickets + " Ticket(s)";
+            document.getElementById("displayTicketCount").innerText = ticketsCount + " Ticket(s) [" + sizesSummary + "]";
             document.getElementById("displayTicketTx").innerText = txId;
 
             switchPage('success');
@@ -783,7 +850,8 @@
                             "Name: " + currentBookingData.name + "\n" +
                             "Place: " + currentBookingData.place + "\n" +
                             "Phone: " + currentBookingData.phone + "\n" +
-                            "No. of Tickets: " + currentBookingData.tickets + "\n" +
+                            "No. of Tickets: " + currentBookingData.ticketsCount + "\n" +
+                            "Jersey Sizes: " + currentBookingData.sizesSummary + "\n" +
                             "Transaction ID (UTR): " + currentBookingData.txId;
 
             window.open("https://wa.me/" + myPhoneNumber + "?text=" + encodeURIComponent(message), '_blank');
