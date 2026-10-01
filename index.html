@@ -627,7 +627,7 @@
                     </div>
                 </div>
 
-                <button type="button" class="btn" onclick="switchPage('form')" style="margin-top: 12px;">Combo Book 🎟️</button>
+                <button type="button" class="btn" style="background: linear-gradient(135deg, #475569, #334155); cursor: not-allowed; box-shadow: none; margin-top: 12px;" disabled>BOOKING CLOSED ❌</button>
             </div>
 
             <div class="card">
@@ -696,63 +696,13 @@
         </div>
 
         <div id="page-form" class="page-view">
-            <div class="card" style="border: 2px solid rgba(14, 165, 233, 0.4);">
+            <div class="card" style="border: 2px solid rgba(239, 68, 68, 0.4); text-align: center;">
                 <a class="back-link" onclick="switchPage('match')">&larr; Back to Match Details</a>
-                <div class="section-title">📝 Ticket + Jersey Combo Booking Details</div>
-                <p style="font-size: 11px; color: #94a3b8; margin-bottom: 14px; font-weight: 600;">
-                    Please fill out your details correctly to secure your combo booking.
+                <div class="section-title" style="justify-content: center; color: #ef4444;">❌ Combo Booking Closed</div>
+                <p style="font-size: 13px; color: #94a3b8; margin: 20px 0; font-weight: 700;">
+                    We are currently sold out / bookings are officially closed for this match combo! Thank you for the overwhelming response. 🔥
                 </p>
-
-                <form id="comboBookingForm" onsubmit="handleComboSubmit(event)">
-                    <div class="form-group">
-                        <label>Name:</label>
-                        <input type="text" id="comboName" placeholder="Enter your full name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Place:</label>
-                        <input type="text" id="comboPlace" placeholder="e.g., Thrissur" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone Number:</label>
-                        <input type="tel" id="comboPhone" placeholder="e.g., +91 81295 43311" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Gmail ID:</label>
-                        <input type="email" id="comboEmail" placeholder="e.g., example@gmail.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label>How many tickets:</label>
-                        <select id="comboTickets" onchange="renderJerseySizeSelectors()" required>
-                            <option value="">-- Select count (1-10) --</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-
-                    <!-- Dynamic Jersey Sizes Container -->
-                    <div class="form-group" id="jerseySizesWrapper" style="display: none;">
-                        <label>Select Jersey Size for Each Ticket:</label>
-                        <div class="jersey-sizes-container" id="jerseySizesList"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>UPI ID Number:</label>
-                        <input type="text" id="comboUpi" placeholder="e.g., username@oksbi" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Transaction ID / UPI Reference Number:</label>
-                        <input type="text" id="comboTxId" placeholder="Enter 12-digit UPI Reference Number" required>
-                    </div>
-                    <button type="submit" class="btn btn-whatsapp">Generate Virtual Ticket 🎟️</button>
-                </form>
+                <button type="button" class="btn" onclick="switchPage('match')" style="background: linear-gradient(135deg, #475569, #334155);">Back to Home Portal</button>
             </div>
         </div>
 
